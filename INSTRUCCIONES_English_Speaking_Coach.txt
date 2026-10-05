@@ -1,0 +1,277 @@
+===============================================================
+ ENGLISH SPEAKING COACH - Cómo funciona y cómo ejecutarlo
+ (Guía paso a paso para Windows)
+===============================================================
+
+---------------------------------------------------------------
+1. QUÉ ES Y CÓMO FUNCIONA
+---------------------------------------------------------------
+
+Es una página web donde practicas inglés HABLANDO (sin escribir).
+Un coach con inteligencia artificial te hace una entrevista de
+trabajo (o una conversación de viajes, juntas, negocios...), te
+escucha, te responde en voz alta y te corrige.
+
+Así es una sesión:
+
+  1) Abres la página y eliges qué practicar (por ejemplo
+     "Entrevista de trabajo"), tu nivel y cómo quieres que te
+     corrija.
+  2) Aceptas el permiso del micrófono.
+  3) El coach te saluda en voz alta y te hace una pregunta.
+  4) Tú contestas en inglés. Cuando dejas de hablar ~1.5 segundos,
+     la app entiende que terminaste tu turno.
+  5) El coach analiza lo que dijiste:
+       - Modo PROFESOR: te dice en voz alta 1 corrección importante
+         (por ejemplo: "Instead of 'I have 3 years working', say
+         'I have been working for 3 years'") y, si una palabra suele
+         costar trabajo, te la pronuncia normal y lento y te pide
+         que la repitas.
+       - Modo CONVERSACIÓN FLUIDA: no te interrumpe; guarda todo
+         para el final.
+  6) Sigue la siguiente pregunta, y así hasta terminar.
+  7) Al final ves un RESUMEN: tus 3 errores principales, ejercicios
+     para practicarlos y las palabras a mejorar (con botones para
+     escucharlas normal, lento y grabarte).
+
+Cosas que puedes hacer mientras hablas:
+  - Botón "Interrumpir" (o empezar a hablar) para callar al coach.
+  - Botón "Pista": te da una ayuda en español.
+  - Si te quedas callado unos segundos, te da la pista solo.
+  - Botón "Listo": terminas tu turno a mano si no detecta el
+    silencio (por ejemplo, con mucho ruido).
+  - Comandos de voz: "repeat", "slower", "no sé", "next question",
+    "end the interview".
+
+IMPORTANTE - dos niveles de funcionamiento:
+
+  A) SIN CLAVES (así viene):
+     Funciona completo, pero el coach NO es la IA: usa preguntas
+     fijas y 30 reglas de errores típicos de hispanohablantes.
+     En la pantalla dice "Sin IA". Sirve para probar la app.
+
+  B) CON CLAVE DE GROQ (recomendado):
+     El coach es un agente de IA de verdad: pregunta según lo que
+     contestas, corrige cualquier error y decide qué practicar.
+     En la pantalla dice "Agente IA (Groq)".
+     Puedes usar la misma clave de Groq que ya usas en SOPHYA.
+
+  Pronunciación:
+     Sin Azure, la app solo te SUGIERE palabras que suelen costar y
+     lo dice claramente ("Sugerencia, no medido").
+     Con una clave de Azure Speech, MIDE tu pronunciación de verdad
+     (puntaje por palabra y por sonido). Ver sección 5.
+
+
+---------------------------------------------------------------
+2. LO QUE NECESITAS (una sola vez)
+---------------------------------------------------------------
+
+  - Tu computadora con Windows (la MSI o la Lenovo).
+  - Google Chrome o Microsoft Edge (Firefox NO sirve para voz).
+  - Micrófono (el de la laptop sirve; con audífonos va mejor).
+  - Internet.
+  - Node.js (el programa que ejecuta la app). Si no lo tienes:
+
+    1. Entra a https://nodejs.org
+    2. Descarga la versión que dice "LTS".
+    3. Instálala con Siguiente, Siguiente, Finalizar (todo por
+       defecto).
+    4. Para comprobar: abre PowerShell y escribe:
+
+         node -v
+
+       Debe salir algo como v22.x.x (sirve cualquier versión 20 o
+       mayor). Si dice "no se reconoce", cierra y vuelve a abrir
+       PowerShell o reinicia la computadora.
+
+
+---------------------------------------------------------------
+3. EJECUTARLO EN TU COMPUTADORA (paso a paso)
+---------------------------------------------------------------
+
+PASO 1 - Descomprimir
+  - Crea la carpeta  C:\proyectos
+    (mejor una ruta corta y sin espacios).
+  - Clic derecho en english-speaking-coach.zip -> "Extraer todo..."
+    -> elige C:\proyectos
+  - Debe quedar así:  C:\proyectos\english-speaking-coach
+    (adentro verás package.json, README.md, la carpeta src, etc.)
+  - Ojo: si quedó una carpeta dentro de otra con el mismo nombre,
+    usa la de adentro (la que tiene package.json).
+
+PASO 2 - Abrir la terminal en esa carpeta
+  - Abre VS Code -> File -> Open Folder -> elige
+    C:\proyectos\english-speaking-coach
+  - Menú Terminal -> New Terminal (se abre PowerShell abajo).
+
+PASO 3 - Permitir scripts en PowerShell (solo si da error)
+  Si al escribir npm te sale "la ejecución de scripts está
+  deshabilitada", escribe esto y Enter (lo mismo que haces en
+  SOPHYA; hay que repetirlo cada vez que abres la terminal):
+
+    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+  (Otra opción: en VS Code cambia la terminal a "Command Prompt".)
+
+PASO 4 - Instalar las dependencias (solo la primera vez)
+    npm install
+  Tarda 1 a 3 minutos. Es normal que salgan algunos "warn".
+
+PASO 5 - Crear tu archivo de configuración (solo la primera vez)
+    Copy-Item .env.example .env.local
+  (Si usas Command Prompt:  copy .env.example .env.local )
+
+PASO 6 - (Opcional pero recomendado) Poner tu clave de Groq
+  - Abre el archivo .env.local en VS Code.
+  - Busca la línea:   GROQ_API_KEY=
+  - Pega tu clave después del igual, sin espacios ni comillas:
+        GROQ_API_KEY=gsk_xxxxxxxxxxxxxxxxxxxx
+  - Guarda (Ctrl + S).
+  - Si no tienes clave: https://console.groq.com -> API Keys ->
+    Create API Key. Es gratis con límites diarios.
+  - Cambia también SESSION_SECRET por cualquier texto largo
+    inventado (por ejemplo 40 letras y números al azar).
+
+PASO 7 - Arrancar la app
+    npm run dev
+  Cuando veas algo como:
+      Local:   http://localhost:3000
+  ya está funcionando. NO cierres esa terminal mientras la usas.
+
+PASO 8 - Usarla
+  - Abre Chrome y entra a:  http://localhost:3000
+  - Abajo, en "Qué está funcionando", revisa que diga
+    "Agente IA (Groq)" si pusiste la clave, o "Sin IA" si no.
+  - Elige "Entrevista de trabajo", el puesto, tu nivel y
+    "Modo profesor".
+  - Toca "Empezar a hablar" -> "Permitir micrófono y empezar".
+  - Chrome te pregunta por el micrófono -> "Permitir".
+  - Espera el saludo y contesta en inglés cuando diga
+    "Te escucho".
+
+PASO 9 - Apagarla
+  - En la terminal presiona Ctrl + C.
+  - La próxima vez solo repites el PASO 2, el 3 (si hace falta),
+    el 7 y el 8. El npm install y el .env.local ya no.
+
+
+---------------------------------------------------------------
+4. USARLA EN TU CELULAR (subirla a internet con Vercel)
+---------------------------------------------------------------
+
+El micrófono del celular solo funciona en páginas con https, así
+que para usarla en el celular hay que publicarla. Igual que
+SOPHYA, puedes usar Vercel (gratis):
+
+  1. Crea un repositorio nuevo en GitHub (por ejemplo
+     "english-speaking-coach") y sube la carpeta.
+     La carpeta ya trae git inicializado. Desde la terminal:
+        git remote add origin https://github.com/AlfonsoCha1/english-speaking-coach.git
+        git branch -M main
+        git push -u origin main
+     (o usa GitHub Desktop si te es más fácil).
+  2. En https://vercel.com -> Add New -> Project -> importa ese
+     repositorio.
+  3. Antes de "Deploy", en "Environment Variables" agrega:
+        GROQ_API_KEY      = tu clave de Groq
+        SESSION_SECRET    = un texto largo inventado
+     (y las de Azure si las tienes, ver sección 5).
+  4. Deploy. Te da una dirección tipo
+     https://english-speaking-coach.vercel.app
+     Ábrela en el celular con Chrome.
+
+  Si Vercel marca el deploy como "Blocked": es lo mismo que te pasó
+  con SOPHYA. Configura tu correo de GitHub y vuelve a hacer commit:
+        git config --global user.email "EL_CORREO_DE_TU_GITHUB"
+        git commit --amend --reset-author --no-edit
+        git push -f
+
+  En iPhone el reconocimiento de voz del navegador falla seguido.
+  Para iPhone agrega en Vercel:  STT_PROVIDER = groq
+  (usa Whisper de Groq con tu misma clave; cuesta centavos).
+
+
+---------------------------------------------------------------
+5. PRONUNCIACIÓN MEDIDA DE VERDAD (Azure) - opcional
+---------------------------------------------------------------
+
+  1. Entra a https://portal.azure.com (pide tarjeta para verificar
+     aunque uses el plan gratis).
+  2. "Create a resource" -> busca "Speech" -> Create.
+  3. Región: East US. Plan (Pricing tier): Free F0.
+  4. Cuando se cree, entra a "Keys and Endpoint" y copia Key 1.
+  5. En .env.local (o en Vercel) pon:
+        AZURE_SPEECH_KEY=la_key_1
+        AZURE_SPEECH_REGION=eastus
+  6. Reinicia la app (Ctrl + C y npm run dev).
+  Verás "Medido con audio" y puntajes como 62/100 por palabra.
+  El plan gratis da 5 horas de audio al mes (unas 40 sesiones).
+
+  Opcional, voz más natural del coach:  TTS_PROVIDER=azure
+
+
+---------------------------------------------------------------
+6. SI ALGO FALLA
+---------------------------------------------------------------
+
+  "npm no se reconoce"
+     -> Node.js no está instalado o la terminal se abrió antes de
+        instalarlo. Cierra VS Code, ábrelo de nuevo. Si sigue,
+        reinstala Node.js LTS.
+
+  "La ejecución de scripts está deshabilitada"
+     -> Paso 3 (Set-ExecutionPolicy ...).
+
+  "Port 3000 is in use"
+     -> Ya hay otra cosa usando ese puerto. Usa:
+            npm run dev -- -p 3001
+        y abre http://localhost:3001
+
+  No me escucha / no aparece lo que digo
+     -> En Chrome, clic en el candado junto a la dirección ->
+        Micrófono -> Permitir, y recarga la página.
+     -> En Windows: Configuración -> Sistema -> Sonido -> revisa
+        que el micrófono correcto esté como predeterminado.
+     -> Usa Chrome o Edge, no Firefox.
+     -> El reconocimiento de Chrome necesita internet.
+
+  El coach se interrumpe solo
+     -> Su propia voz sale por la bocina y el micrófono la escucha.
+        Usa audífonos, o en el inicio desactiva
+        "Interrumpir al coach hablando".
+
+  Dice "Sin IA" aunque puse la clave
+     -> Revisa que el archivo se llame exactamente .env.local
+        (no .env.local.txt), que la línea sea GROQ_API_KEY=gsk_...
+        sin espacios, y reinicia con Ctrl + C y npm run dev.
+
+  Termina la sesión antes de tiempo
+     -> Hay límites para cuidar costos: 15 minutos y 30 turnos por
+        sesión, 10 sesiones por día por conexión. Se cambian en
+        .env.local (LIMIT_...).
+
+
+---------------------------------------------------------------
+7. CUÁNTO CUESTA USARLA
+---------------------------------------------------------------
+
+  - Sin claves: gratis.
+  - Con Groq: menos de 1 centavo de dólar por sesión (y Groq tiene
+    plan gratis con límites).
+  - Con Azure (pronunciación medida): ~US$0.12-0.15 por sesión de
+    15 minutos, después de las 5 horas gratis del mes.
+  Precios revisados en septiembre de 2026; pueden cambiar.
+
+
+---------------------------------------------------------------
+8. COMANDOS ÚTILES
+---------------------------------------------------------------
+
+  npm run dev       Arranca la app para usarla o probar cambios.
+  npm test          Corre las 28 pruebas automáticas.
+  npm run build     Prepara la versión de producción.
+  npm start         Ejecuta la versión de producción (después de build).
+
+Más detalle técnico en README.md (español) y README.en.md (inglés).
+Plan para validarla con usuarios y volverla negocio: docs/NEGOCIO.md
