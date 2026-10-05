@@ -1,0 +1,224 @@
+===============================================================
+ LLEGA (delivery) - Cómo ejecutarlo y probarlo, paso a paso
+ (Windows. Para entender qué es cada parte, lee COMO-FUNCIONA.txt)
+===============================================================
+
+---------------------------------------------------------------
+1. LO QUE NECESITAS (una sola vez)
+---------------------------------------------------------------
+
+  - Node.js versión 20 o mayor (el mismo que instalaste para el
+    English Speaking Coach). Si no lo tienes: https://nodejs.org ->
+    botón "LTS" -> instalar con Siguiente, Siguiente, Finalizar.
+    Comprueba en PowerShell:   node -v    (debe decir v20 o más)
+  - Google Chrome o Microsoft Edge.
+  - NO necesitas instalar una base de datos: la app trae una base
+    PostgreSQL integrada que se guarda sola en la carpeta .data
+
+
+---------------------------------------------------------------
+2. EJECUTARLO EN TU COMPUTADORA
+---------------------------------------------------------------
+
+PASO 1 - Descomprimir
+  Extrae llega-delivery.zip en  C:\proyectos
+  Debe quedar:  C:\proyectos\llega-delivery  (con package.json adentro)
+
+PASO 2 - Abrir la terminal
+  VS Code -> File -> Open Folder -> C:\proyectos\llega-delivery
+  Menú Terminal -> New Terminal.
+
+PASO 3 - Solo si PowerShell bloquea npm
+    Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass
+
+PASO 4 - Instalar (solo la primera vez, 1 a 3 minutos)
+    npm install
+
+PASO 5 - Configuración (solo la primera vez)
+    Copy-Item .env.example .env.local
+  Opcional: abre .env.local y pega tu clave de Groq en GROQ_API_KEY=
+  para que el chat de pedidos use IA. Sin clave funciona con reglas.
+
+PASO 6 - Arrancar
+    npm run dev
+  Espera a ver:   Local:   http://localhost:3000
+  La primera vez tarda unos segundos más: crea las tablas y llena
+  los datos de ejemplo.
+
+PASO 7 - Abrir
+  Chrome -> http://localhost:3000
+
+PASO 8 - Apagar
+  Ctrl + C en la terminal. La próxima vez solo: Paso 2, (3), 6 y 7.
+  Tus pedidos de prueba se quedan guardados en la carpeta .data
+  Para empezar de cero: apaga la app, borra la carpeta .data y
+  vuelve a arrancar.
+
+
+---------------------------------------------------------------
+3. CUENTAS DE DEMO (contraseña de todas: demo1234)
+---------------------------------------------------------------
+
+  Restaurante (dueño de Tacos Don Chava):  dueno@llega.demo
+  Otro restaurante (Café Arcos):           cafe@llega.demo
+  Otro restaurante (Pizzas del Convento):  pizzas@llega.demo
+  Repartidor de Tacos Don Chava:           repartidor@llega.demo
+  Repartidora de Café Arcos:               ana@llega.demo
+  Administrador:                           admin@llega.demo
+
+  Los clientes NO necesitan cuenta.
+  IMPORTANTE: antes de lanzar, borra estas cuentas (o no las crees:
+  en producción no se crean solas).
+
+
+---------------------------------------------------------------
+4. PROBAR TODO EL FLUJO EN UNA SOLA COMPUTADORA
+---------------------------------------------------------------
+
+Necesitas 3 "personas" a la vez. Usa 3 ventanas que no compartan
+sesión:
+  - Ventana normal de Chrome      -> será el CLIENTE
+  - Ventana de incógnito (Ctrl+Shift+N) -> será el RESTAURANTE
+  - Microsoft Edge (u otro perfil de Chrome) -> será el REPARTIDOR
+
+A) CLIENTE (ventana normal)
+   1. Entra a http://localhost:3000
+   2. Toca "Tacos Don Chava", agrega 2 tacos al pastor y un agua.
+   3. "Ver pedido" -> llena nombre, celular (10 dígitos) y dirección.
+   4. Marca tu casa en el mapa: toca "📍 Yo" (permite la ubicación)
+      o toca el mapa / arrastra la casita.
+      Ojo: el restaurante demo está en Tepotzotlán y entrega hasta
+      6 km. Si tu ubicación real está lejos, arrastra la casita cerca
+      del restaurante (🌮).
+   5. "Hacer pedido". Se abre la página de RASTREO: déjala abierta.
+
+B) RESTAURANTE (incógnito)
+   1. http://localhost:3000/panel/login -> dueno@llega.demo / demo1234
+   2. Verás el pedido en "Nuevos". Toca "Aceptar".
+   3. En "Repartidor" elige a Luis. Luego "Listo para recoger".
+   Mira la ventana del cliente: cambia sola a "Preparando".
+
+C) REPARTIDOR (Edge)
+   1. http://localhost:3000/repartidor/login
+      -> repartidor@llega.demo / demo1234
+   2. Activa "Disponible" y permite la ubicación.
+   3. Verás "Tu entrega". Toca "Recogí el pedido".
+   4. En la ventana del cliente aparece "Luis va en camino", el mapa
+      y el CÓDIGO DE ENTREGA de 4 dígitos.
+   5. Escribe ese código en la app del repartidor y toca "Entregado".
+   6. El cliente ve "¡Entregado!" y puede calificar.
+
+   En la computadora el repartidor no se mueve (tu GPS no cambia).
+   Para VER al repartidor moverse sin salir a la calle: en el panel
+   del restaurante, en un pedido, toca "▶ Simular entrega (demo)" y
+   abre "Ver rastreo". Un repartidor simulado recorre la ruta en ~75
+   segundos.
+
+D) OTRAS COSAS PARA PROBAR
+   - Chat con asistente: en la tienda toca "💬 Pedir por chat" y
+     escribe como en WhatsApp: "2 tacos al pastor y una horchata",
+     "es todo", tu nombre, tu celular, tu dirección, compartir
+     ubicación y "sí".
+   - Solo rastreo (como Pinkbot): Panel -> "Pedido manual". Capturas
+     un pedido que te llegó por teléfono y se genera el link de
+     rastreo para el cliente.
+   - Mensajes: Panel -> "Mensajes" muestra todos los SMS/WhatsApp que
+     se enviarían (en demo no se envían de verdad; ver sección 6).
+   - Registrar un restaurante nuevo: http://localhost:3000/negocios
+     -> "Registrar mi restaurante".
+   - Unir un repartidor: Panel -> "Repartidores" muestra un código y
+     un link de invitación.
+   - Administración: http://localhost:3000/admin con admin@llega.demo
+
+
+---------------------------------------------------------------
+5. PONERLO EN INTERNET (para usarlo en celulares de verdad)
+---------------------------------------------------------------
+
+En el celular el GPS del repartidor y "📍 Yo" del cliente solo
+funcionan con https, así que para probar en la calle hay que
+publicarlo. Es igual que SOPHYA: Neon (base de datos) + Vercel.
+
+  1. Neon (https://neon.tech): crea un proyecto nuevo, por ejemplo
+     "llega". Copia la cadena de conexión "Pooled connection"
+     (empieza con postgresql:// y dice -pooler).
+  2. GitHub: crea el repositorio "llega-delivery" y sube la carpeta
+     (ya trae git):
+        git remote add origin https://github.com/AlfonsoCha1/llega-delivery.git
+        git branch -M main
+        git push -u origin main
+  3. Vercel: Add New -> Project -> importa el repositorio. Antes de
+     Deploy, en "Environment Variables" agrega:
+        DATABASE_URL   = la cadena de Neon
+        AUTH_SECRET    = un texto largo inventado (40+ caracteres)
+        APP_URL        = la dirección que te dé Vercel, por ejemplo
+                         https://llega-delivery.vercel.app
+        ADMIN_EMAILS   = tu correo
+        GROQ_API_KEY   = tu clave de Groq (para el chat con IA)
+     Para tener datos de ejemplo en internet agrega también
+        SEED_DEMO = 1   y   DEMO_TOOLS = 1
+     (quítalos antes de lanzar con clientes reales).
+  4. Deploy. La primera vez que abras la página se crean las tablas.
+  5. Si Vercel dice "Blocked" (te pasó con SOPHYA):
+        git config --global user.email "EL_CORREO_DE_TU_GITHUB"
+        git commit --amend --reset-author --no-edit
+        git push -f
+
+  Importante: el plan gratis de Vercel (Hobby) es para uso personal y
+  no comercial. Para cobrarle a restaurantes necesitas Vercel Pro
+  (~US$20 al mes) u otro hosting (Render, Railway, un VPS).
+
+
+---------------------------------------------------------------
+6. MENSAJES REALES POR SMS O WHATSAPP
+---------------------------------------------------------------
+
+  Sin configurar nada, los mensajes se guardan en Panel -> Mensajes
+  y el cliente igual ve su pedido en vivo (se le abre la página de
+  rastreo al pedir).
+
+  SMS con Twilio: agrega TWILIO_ACCOUNT_SID, TWILIO_AUTH_TOKEN y
+  TWILIO_SMS_FROM. OJO con el costo: en México cada SMS cuesta
+  alrededor de US$0.18 (unos $3 pesos), y la app manda hasta 4 por
+  pedido. Por eso se recomienda WhatsApp.
+
+  WhatsApp: sigue docs/WHATSAPP.md (requiere cuenta de WhatsApp
+  Business en Meta y registrar las plantillas de mensaje).
+
+
+---------------------------------------------------------------
+7. SI ALGO FALLA
+---------------------------------------------------------------
+
+  "npm no se reconoce"                -> instala Node.js y reabre VS Code.
+  "La ejecución de scripts está deshabilitada" -> Paso 3.
+  "Port 3000 is in use"               -> npm run dev -- -p 3001
+  El mapa se ve gris                  -> sin internet no cargan los
+                                         mosaicos; lo demás funciona.
+  "Tu dirección está a X km"          -> estás fuera del radio de
+                                         entrega; mueve la casita cerca
+                                         del restaurante o sube el radio
+                                         en Panel -> Ajustes.
+  No me deja entrar al panel          -> revisa correo y contraseña
+                                         (demo1234). Después de 8
+                                         intentos fallidos espera 15 min.
+  En producción: error de AUTH_SECRET -> agrégalo en Vercel (mínimo
+                                         16 caracteres) y vuelve a
+                                         desplegar.
+  Quiero borrar todo y empezar        -> borra la carpeta .data
+  de nuevo (local)
+
+
+---------------------------------------------------------------
+8. COMANDOS ÚTILES
+---------------------------------------------------------------
+
+  npm run dev      Arranca la app.
+  npm test         27 pruebas automáticas (usa una base en memoria).
+  npm run build    Versión de producción.
+  npm start        Ejecuta la versión de producción.
+  npm run test:e2e Prueba completa en navegador (necesita Chromium;
+                   pensada para la computadora de desarrollo).
+
+Más detalle: README.md (español), README.en.md (inglés),
+docs/NEGOCIO.md (plan de negocio), docs/API.md, docs/WHATSAPP.md.
