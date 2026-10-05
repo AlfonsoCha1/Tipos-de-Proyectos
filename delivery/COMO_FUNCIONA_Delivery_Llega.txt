@@ -1,0 +1,192 @@
+===============================================================
+ LLEGA - Plataforma de delivery (nombre de trabajo, se cambia)
+ Cómo funciona, en qué va y qué se necesita para lanzarla
+===============================================================
+
+---------------------------------------------------------------
+1. QUÉ ES
+---------------------------------------------------------------
+
+Es UNA sola plataforma que se puede vender de 3 formas:
+
+  A) TIENDA PROPIA PARA CADA RESTAURANTE (marca propia)
+     El restaurante tiene su página para recibir pedidos, por
+     ejemplo  llega.mx/r/tacos-don-chava , con su color y su logo.
+     La comparte en WhatsApp, Instagram o con un QR en la mesa.
+     Ventaja para el restaurante: no paga la comisión de 25-30%
+     de Rappi o Uber Eats; te paga a ti una mensualidad.
+
+  B) MARKETPLACE (tipo Rappi / Uber Eats)
+     La página principal lista todos los restaurantes que aceptan
+     aparecer ahí. El cliente busca ("tacos", "pizza"), pide y
+     rastrea. Es el mismo sistema; cada restaurante decide si
+     aparece en el marketplace o solo en su tienda.
+
+  C) SOLO RASTREO Y AVISOS (como Pinkbot, lo de tus capturas)
+     El restaurante ya recibe pedidos por teléfono, WhatsApp o su
+     propio sistema. Solo captura el pedido en el panel (o lo manda
+     por API) y el cliente recibe un SMS o WhatsApp con un link
+     para ver en vivo al repartidor en el mapa, la hora estimada de
+     llegada y los pasos: Pedido -> Preparando -> En camino ->
+     Entregado.
+
+
+---------------------------------------------------------------
+2. LAS PARTES (quién usa qué)
+---------------------------------------------------------------
+
+  CLIENTE (no necesita cuenta)
+    - Ve el menú, arma su carrito, pone su dirección y un pin en el
+      mapa (o "usar mi ubicación"), elige efectivo o tarjeta de
+      prueba, agrega propina y pide.
+    - Página de rastreo en vivo: mapa con el restaurante, el
+      repartidor moviéndose y su casa; hora estimada que se
+      recalcula con el GPS del repartidor; chat con el repartidor;
+      botón de llamar; "Obtener ayuda con este pedido"; código de
+      entrega de 4 dígitos; y al final, calificar.
+    - Recibe SMS o WhatsApp: pedido recibido, aceptado, en camino
+      (con su código de entrega) y entregado.
+
+  RESTAURANTE (panel con usuario y contraseña)
+    - Tablero de pedidos en tiempo real con sonido al llegar uno
+      nuevo: Aceptar (con minutos de preparación), Listo, asignar
+      repartidor, cancelar, ver el rastreo, chatear.
+    - Capturar un pedido manual (modo "solo rastreo").
+    - Editar el menú: categorías, platillos, precios, agotado.
+    - Configuración: nombre, color, logo, abierto/cerrado, costo de
+      envío, pedido mínimo, radio de entrega, formas de pago, si
+      aparece en el marketplace, SMS o WhatsApp.
+    - Equipo: código para invitar repartidores y ver dónde están.
+    - Claves de API para conectar su propio sistema.
+    - Bandeja de mensajes: todo lo que se le envió a los clientes.
+
+  REPARTIDOR (app web en su celular, sin instalar nada)
+    - Se une con el código de invitación del restaurante.
+    - Botón "Disponible", comparte su GPS mientras trabaja.
+    - Ve los pedidos listos, los toma, abre la ruta en Google Maps o
+      Waze, marca "Recogí el pedido" y "Entregado" (con el código
+      de 4 dígitos que le da el cliente, para evitar fraudes).
+    - Chat y llamada con el cliente.
+
+  AGENTE DE IA QUE TOMA PEDIDOS
+    - En la tienda del restaurante hay un chat "Pide por chat".
+    - Preparado para WhatsApp (Meta WhatsApp Cloud API o Twilio).
+    - El cliente escribe como habla ("2 de pastor sin cebolla y una
+      horchata, a nombre de Ana"), el agente arma el carrito, pide
+      los datos que falten y la ubicación, muestra el resumen y SOLO
+      cuando el cliente responde "sí" crea el pedido real.
+    - Seguridad: la IA solo propone acciones; el sistema revisa cada
+      una contra el menú real (no puede inventar platillos ni
+      precios) y el resumen final lo genera el código, no la IA.
+    - Sin clave de IA funciona con reglas (entiende cantidades,
+      platillos, "sin cebolla", nombre, teléfono, dirección, "es
+      todo", "sí").
+
+  ADMINISTRADOR (tú)
+    - Lista de restaurantes, activarlos/desactivarlos y decidir si
+      salen en el marketplace.
+
+
+---------------------------------------------------------------
+3. EN QUÉ VA (estado honesto, 27 de septiembre de 2026)
+---------------------------------------------------------------
+
+  TERMINADO Y PROBADO:
+    - Todo lo de la sección 2 funciona y está probado de punta a
+      punta en navegador: cliente, restaurante y repartidor en 3
+      navegadores distintos con GPS simulado (6 escenarios, 44 verificaciones), más 27
+      pruebas automáticas de la lógica sobre una base PostgreSQL real.
+    - Revisado también: no se pueden alterar precios, un repartidor
+      no puede usar el panel del restaurante, no se aceptan pedidos
+      fuera de la zona, el código de entrega equivocado se rechaza.
+
+  FUNCIONA, PERO NECESITA CUENTAS TUYAS PARA SER "REAL":
+    - Agente de IA: tu clave de Groq (sin ella funciona con reglas).
+    - SMS: cuenta de Twilio (~US$0.18 por SMS a México).
+    - WhatsApp: cuenta de WhatsApp Business en Meta + plantillas
+      aprobadas (ver docs/WHATSAPP.md).
+    Esas conexiones se probaron contra servidores que imitan esas
+    APIs, no contra Groq, Twilio o Meta reales (no tengo tus claves).
+
+  NO INCLUIDO TODAVÍA (a propósito):
+    - Cobro real con tarjeta (hoy es simulado; efectivo sí es real).
+    - Facturación, cobro de mensualidades a restaurantes, pagos a
+      repartidores.
+    - App nativa en Play Store / App Store (es web para celular).
+
+---------------------------------------------------------------
+4. CÓMO SE EJECUTA (paso a paso completo en INSTRUCCIONES.txt)
+---------------------------------------------------------------
+
+  En tu computadora (para probar):
+    npm install
+    Copy-Item .env.example .env.local
+    npm run dev
+    -> abre http://localhost:3000
+
+  No necesitas instalar una base de datos para probar: trae una
+  base PostgreSQL integrada que se guarda en la carpeta .data y se
+  llena sola con 3 restaurantes de ejemplo en Tepotzotlán
+  (Tacos Don Chava, Café Arcos, Pizzas del Convento), sus dueños, dos
+  repartidores y un repartidor simulado. Todas las cuentas demo
+  usan la contraseña demo1234 (hay que borrarlas antes de lanzar).
+
+  Para lanzarla de verdad (producción):
+    - Vercel (hosting, como SOPHYA).
+    - Neon (base de datos PostgreSQL, como SOPHYA): se pone
+      DATABASE_URL y listo, el sistema crea las tablas solo.
+    - AUTH_SECRET: un texto largo secreto (obligatorio).
+
+
+---------------------------------------------------------------
+5. QUÉ CUENTAS NECESITAS PARA SALIR "EN SERIO"
+---------------------------------------------------------------
+
+  Obligatorio:
+    - Vercel + Neon (tienen plan gratis para empezar).
+    - Un dominio (por ejemplo llega.mx), ~US$15-40 al año.
+    - Ojo: el plan gratis de Vercel es para uso NO comercial. Cuando
+      le cobres a restaurantes necesitas Vercel Pro (~US$20 al mes)
+      u otro hosting.
+
+  Para avisos al cliente (sin esto, los mensajes solo se guardan
+  en el panel como demo):
+    - SMS: Twilio. En México cuesta alrededor de US$0.18 por SMS
+      (unos $3 pesos). Con 4 avisos por pedido sale caro: mejor
+      WhatsApp o un solo SMS con el link.
+    - WhatsApp: Meta WhatsApp Cloud API (cuenta de WhatsApp
+      Business verificada). Fuera de la ventana de 24 horas solo
+      deja mandar plantillas aprobadas por Meta.
+
+  Para el agente de IA:
+    - Groq (la misma clave de SOPHYA sirve). Muy barato.
+
+  Mapas:
+    - Para pruebas usa los mapas gratis de OpenStreetMap.
+    - Para uso comercial con volumen, sus reglas piden usar un
+      proveedor (MapTiler, Stadia o Mapbox tienen planes gratis
+      iniciales). Solo se cambia una variable.
+
+  Pagos:
+    - Por ahora: efectivo contra entrega (real) y "tarjeta de
+      prueba" (no cobra nada y lo dice claramente; no se piden
+      datos de tarjeta).
+    - Cobro real con tarjeta: siguiente paso con Mercado Pago o
+      Stripe. Lo dejamos para después de validar, como con el coach.
+
+
+---------------------------------------------------------------
+6. ANTES DE LANZAR (no técnico)
+---------------------------------------------------------------
+
+  - Aviso de privacidad (ley mexicana de datos personales): guardas
+    nombres, teléfonos, direcciones y ubicación GPS de clientes y
+    repartidores.
+  - Términos y condiciones con restaurantes y repartidores.
+  - Relación con repartidores: en México hay reglas nuevas para
+    trabajadores de plataformas digitales (reforma reciente a la Ley
+    Federal del Trabajo, en vigor desde 2025). Si los
+    repartidores son de cada restaurante, la relación laboral es del
+    restaurante; si son tuyos (marketplace), revísalo con un
+    abogado.
+  Esto no es asesoría legal; consúltalo con un abogado.
