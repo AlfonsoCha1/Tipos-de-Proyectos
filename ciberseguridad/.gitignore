@@ -1,0 +1,34 @@
+# --- Entornos virtuales ---
+.venv/
+venv/
+env/
+
+# --- Cachés de Python y de pruebas ---
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
+htmlcov/
+
+# --- Resultados locales (exportaciones de las herramientas) ---
+output/
+salidas/
+
+# --- Secretos (el proyecto 02 generará secretos de demostración locales) ---
+.env
+.env.*
+*.secret
+secrets/
+
+# --- Registros reales: se ignora cualquier .log salvo los datos sintéticos de samples/ ---
+# (este .gitignore está dentro de ciberseguridad/ y solo afecta a esta carpeta)
+*.log
+!*/samples/*.log
+!*/samples/**/*.log
+
+# --- Sistema operativo y editores ---
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

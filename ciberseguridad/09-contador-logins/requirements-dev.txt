@@ -1,0 +1,3 @@
+# Dependencias para DESARROLLAR y PROBAR (incluye las de ejecución).
+-r requirements.txt
+pytest>=8.0

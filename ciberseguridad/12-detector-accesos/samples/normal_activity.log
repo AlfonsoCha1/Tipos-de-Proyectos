@@ -1,0 +1,19 @@
+# ==========================================================================
+# DATOS SINTÉTICOS - Cybersecurity Python Lab (proyecto 12)
+# Actividad normal de una oficina ficticia: algunos errores de contraseña,
+# pero ninguna ráfaga. Con la configuración por defecto NO debe haber alertas.
+# IPs de documentación (RFC 5737). Formato "lab".
+# ==========================================================================
+2026-09-15T08:01:10-06:00 LOGIN_SUCCESS user=ana ip=192.0.2.10
+2026-09-15T08:03:45-06:00 LOGIN_FAILURE user=luis ip=192.0.2.11
+2026-09-15T08:04:02-06:00 LOGIN_SUCCESS user=luis ip=192.0.2.11
+2026-09-15T08:15:00-06:00 LOGIN_SUCCESS user=sofia ip=192.0.2.12
+2026-09-15T09:30:20-06:00 LOGIN_FAILURE user=carlos ip=192.0.2.30
+2026-09-15T09:30:41-06:00 LOGIN_FAILURE user=carlos ip=192.0.2.30
+2026-09-15T09:31:05-06:00 LOGIN_SUCCESS user=carlos ip=192.0.2.30
+2026-09-15T12:02:00-06:00 LOGIN_SUCCESS user=ana ip=192.0.2.10
+2026-09-15T13:45:13-06:00 LOGIN_FAILURE user=mario ip=192.0.2.40
+2026-09-15T13:45:30-06:00 LOGIN_FAILURE user=mario ip=192.0.2.40
+2026-09-15T13:46:02-06:00 LOGIN_FAILURE user=mario ip=192.0.2.40
+2026-09-15T13:46:40-06:00 LOGIN_SUCCESS user=mario ip=192.0.2.40
+2026-09-15T17:58:00-06:00 LOGIN_SUCCESS user=luis ip=192.0.2.11
