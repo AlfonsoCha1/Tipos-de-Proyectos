@@ -1,0 +1,7 @@
+# Dependencias para EJECUTAR la herramienta.
+# El código usa solo la biblioteca estándar de Python 3.10+.
+#
+# tzdata: Windows no incluye la base de datos de zonas horarias IANA que usa
+# zoneinfo. Sin este paquete, nombres como "America/Mexico_City" fallan en
+# Windows. Linux Mint ya la trae en el sistema, por eso solo se instala en Windows.
+tzdata>=2024.1; sys_platform == "win32"

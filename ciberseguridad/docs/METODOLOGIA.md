@@ -24,6 +24,7 @@ Lo que eso significa en la práctica:
 
 | Fecha | Proyecto | Sistema y versión de Python | Qué ejecuté | Resultado |
 |---|---|---|---|---|
+| 2026-10-05 | 09 y 12 | Windows (equipo familiar), Python 3.14.8, PowerShell, entorno virtual nuevo con `requirements-dev.txt` | `python menu.py --test-all` (dos veces) | 09: 70 passed; 12: 88 passed; `Proyectos probados: 2 \| con fallos: 0`. *Fuente: la salida de PowerShell que pegué en la conversación con el asistente; las capturas aún están pendientes.* |
 | | | | | |
 
 ## Registro de cambios propios
@@ -36,9 +37,12 @@ Lo que eso significa en la práctica:
 
 Marca cada una cuando puedas explicarla con tus palabras:
 
-- [ ] Por qué cada proyecto es independiente y por qué los proyectos 09 y 12 tienen módulos copiados.
+- [ ] Por qué cada proyecto es independiente y por qué los proyectos 08, 09, 11 y 12 tienen módulos copiados.
 - [ ] Por qué todas las fechas se convierten a UTC al leerlas.
 - [ ] Cómo funciona la ventana deslizante del detector y por qué ordena los eventos primero.
 - [ ] Por qué se cuentan solo las líneas `Accepted`/`Failed` de OpenSSH y no `Invalid user`.
 - [ ] Por qué se neutralizan celdas CSV que empiezan con `=`, `+`, `-` o `@`.
 - [ ] Por qué el detector no bloquea cuentas ni IPs.
+- [ ] Cómo se escapa el texto de los logs en el HTML y el Markdown del proyecto 08, y por qué el HTML lleva `Content-Security-Policy`.
+- [ ] Cómo se combinan los criterios del buscador (proyecto 11): alguna palabra, alguna IP o rango y fecha en el intervalo; Y entre tipos.
+- [ ] Por qué el buscador excluye (y cuenta) las líneas sin fecha cuando se filtra por fechas.

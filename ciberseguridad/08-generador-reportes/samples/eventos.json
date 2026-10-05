@@ -1,0 +1,19 @@
+{
+  "_aviso": "DATOS SINTÉTICOS - Cybersecurity Python Lab (proyecto 08). Todo es inventado: usuarios ficticios e IPs de rangos reservados (RFC 5737 / RFC 3849).",
+  "events": [
+    {"timestamp": "2026-09-14T08:10:02-06:00", "severity": "media", "title": "Fallos de login repetidos", "source": "servidor-web", "description": "3 intentos fallidos seguidos para la cuenta admin.", "ip": "203.0.113.50", "user": "admin"},
+    {"timestamp": "2026-09-14T08:15:10-06:00", "severity": "alta", "title": "Acceso exitoso tras ráfaga de fallos", "source": "servidor-web", "description": "La cuenta admin inició sesión desde otra IP 5 minutos después de la ráfaga.", "ip": "203.0.113.51", "user": "admin"},
+    {"timestamp": "2026-09-14T14:20:00Z", "severity": "critica", "title": "Posible fuerza bruta contra admin", "source": "ids", "description": "Más de 10 fallos en 5 minutos rotando IPs.", "ip": "203.0.113.51", "user": "admin"},
+    {"timestamp": "2026-09-14T14:25:30Z", "severity": "alta", "title": "Password spraying", "source": "ids", "description": "Una IP probó 6 cuentas distintas.", "ip": "198.51.100.23"},
+    {"timestamp": "2026-09-14T14:26:10Z", "severity": "media", "title": "Cuenta inexistente", "source": "ids", "ip": "198.51.100.23", "user": "oracle"},
+    {"timestamp": "2026-09-14T14:27:45Z", "severity": "media", "title": "Cuenta inexistente", "source": "ids", "ip": "198.51.100.23", "user": "test"},
+    {"timestamp": "2026-09-15T09:00:00Z", "severity": "baja", "title": "Cambio de contraseña", "source": "directorio", "user": "ana"},
+    {"timestamp": "2026-09-15T10:30:00Z", "severity": "info", "title": "Escaneo de vulnerabilidades programado", "source": "scanner", "ip": "2001:db8::10"},
+    {"timestamp": "2026-09-15T11:00:00Z", "severity": "High", "title": "Severidad en inglés se normaliza", "source": "vpn", "ip": "192.0.2.77", "user": "luis"},
+    {"timestamp": "2026-09-15T11:05:00Z", "severity": "urgente", "title": "Severidad inventada", "source": "vpn"},
+    {"timestamp": "ayer por la tarde", "severity": "baja", "title": "Fecha ilegible", "source": "vpn"},
+    {"timestamp": "2026-09-15T12:00:00Z", "severity": "media", "source": "vpn"},
+    {"timestamp": "2026-09-15T12:10:00Z", "severity": "media", "title": "IP mal escrita", "ip": "192.0.2.999"},
+    "esto no es un evento"
+  ]
+}

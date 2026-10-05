@@ -1,0 +1,7 @@
+timestamp,severity,title,source,description,ip,user
+2026-09-16T08:00:00-06:00,alta,"Inicio de sesión desde país inusual","vpn","Acceso fuera del horario habitual.",192.0.2.15,carlos
+2026-09-16T08:30:00-06:00,media,"Intentos fallidos de VPN","vpn","Dos fallos y un acceso correcto.",192.0.2.15,carlos
+2026-09-16T09:00:00-06:00,baja,"Usuario creado","directorio","",,diana
+2026-09-16T09:15:00-06:00,critica,"=HYPERLINK(""https://ejemplo.invalid"",""clic"")","correo","Título que empieza con = para probar que no se interpreta como fórmula.",203.0.113.9,
+2026-09-16T09:45:00-06:00,info,"Respaldo completado","respaldos","",,
+2026-09-16T10:00:00-06:00,media,"Fila incompleta"
