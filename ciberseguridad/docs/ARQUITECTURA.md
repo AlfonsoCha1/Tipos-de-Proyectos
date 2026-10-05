@@ -10,7 +10,7 @@ La colección vive en la carpeta `ciberseguridad/` del repositorio [Tipos-de-Pro
 
 | Principio | Cómo se aplica |
 |---|---|
-| Independencia | Cada proyecto vive en `ciberseguridad/NN-nombre/` con su código, `requirements.txt`, datos, pruebas y README. Ningún proyecto importa código de otro. |
+| Independencia | Cada proyecto vive en `ciberseguridad/NN-nombre/` con su código, `requirements.txt`, datos, pruebas y README. Ningún proyecto importa código de otro. Las copias intencionales de módulos (`timeutils.py` en 08, 09, 11 y 12; `models.py` y `parsers.py` en 09 y 12) las vigila `tools/check_shared_copies.py`. |
 | Local y gratuito | Sin APIs de pago ni servicios externos obligatorios. Solo archivos locales. |
 | Pocas dependencias | Biblioteca estándar siempre que sea razonable. Cada dependencia externa se justifica en el README del proyecto. |
 | Seguro por defecto | Sin privilegios de administrador. Nada destructivo por defecto: no se borran archivos, no se sobrescriben exportaciones sin `--force`, no se ejecutan adjuntos ni archivos analizados. |
@@ -54,7 +54,7 @@ Se agrupan proyectos que comparten conceptos para que cada entrega refuerce lo a
 | Entrega | Proyectos | Conceptos | Estado |
 |---|---|---|---|
 | 1 | [09 Contador de intentos de login](../09-contador-logins/README.md), [12 Detector de múltiples accesos](../12-detector-accesos/README.md) | Análisis de logs, expresiones regulares, fechas y zonas horarias, ventanas deslizantes | Implementada |
-| 2 | 11 Buscador en logs, 08 Generador de reportes | Lectura incremental, contexto de líneas, Markdown/HTML con escape | Pendiente |
+| 2 | [11 Buscador en logs](../11-buscador-logs/README.md), [08 Generador de reportes](../08-generador-reportes/README.md) | Lectura incremental, contexto de líneas, Markdown/HTML con escape | Implementada |
 | 3 | 07 Duplicados, 13 Verificador de archivos sospechosos | SHA-256 por bloques, metadatos de archivos | Pendiente |
 | 4 | 03 Validador de archivos, 10 Clasificador de archivos | Reglas de validación, operaciones de archivos simuladas y reversibles | Pendiente |
 | 5 | 06 Analizador de correos | Formato .eml, URLs, indicadores de phishing y falsos positivos | Pendiente |

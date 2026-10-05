@@ -1,0 +1,44 @@
+# ==========================================================================
+# DATOS SINTÉTICOS - Cybersecurity Python Lab (proyectos 09 y 12)
+# Todo es inventado: usuarios ficticios e IPs de rangos reservados para
+# documentación (RFC 5737: 192.0.2.0/24, 198.51.100.0/24, 203.0.113.0/24;
+# RFC 3849: 2001:db8::/32). No corresponden a personas ni equipos reales.
+# Formato "lab": <fecha ISO 8601> <LOGIN_SUCCESS|LOGIN_FAILURE> user=<u> ip=<ip> [clave=valor ...]
+# Hay líneas en UTC (Z) y en -06:00, líneas desordenadas y, al final,
+# líneas con errores a propósito para probar el reporte de errores.
+# ==========================================================================
+2026-09-14T07:58:12-06:00 LOGIN_SUCCESS user=ana ip=192.0.2.10 method=password
+2026-09-14T08:02:41-06:00 LOGIN_FAILURE user=luis ip=192.0.2.11 method=password
+2026-09-14T08:02:59-06:00 LOGIN_SUCCESS user=luis ip=192.0.2.11 method=password
+2026-09-14T08:10:02-06:00 LOGIN_FAILURE user=admin ip=203.0.113.50 method=password
+2026-09-14T08:10:31-06:00 LOGIN_FAILURE user=admin ip=203.0.113.50 method=password
+2026-09-14T08:11:05-06:00 LOGIN_FAILURE user=admin ip=203.0.113.50 method=password
+2026-09-14T08:15:10-06:00 LOGIN_SUCCESS user=admin ip=203.0.113.51 method=password
+2026-09-14T14:11:47Z LOGIN_FAILURE user=admin ip=203.0.113.51 method=password
+2026-09-14T14:12:20Z LOGIN_FAILURE user=admin ip=203.0.113.51 method=password
+2026-09-14T08:12:58-06:00 LOGIN_FAILURE user=admin ip=203.0.113.51 method=password
+2026-09-14T08:13:30-06:00 LOGIN_FAILURE user=admin ip=203.0.113.51 method=password
+2026-09-14T08:30:00-06:00 LOGIN_FAILURE user=carlos ip=192.0.2.30 method=password
+2026-09-14T09:15:00-06:00 LOGIN_FAILURE user=root ip=198.51.100.23 method=password
+2026-09-14T09:15:25-06:00 LOGIN_FAILURE user=test ip=198.51.100.23 method=password
+2026-09-14T09:15:51-06:00 LOGIN_FAILURE user=oracle ip=198.51.100.23 method=password
+2026-09-14T09:16:20-06:00 LOGIN_FAILURE user=guest ip=198.51.100.23 method=password
+2026-09-14T09:16:48-06:00 LOGIN_FAILURE user=postgres ip=198.51.100.23 method=password
+2026-09-14T09:17:30-06:00 LOGIN_FAILURE user=ubuntu ip=198.51.100.23 method=password
+2026-09-14T09:05:00-06:00 LOGIN_FAILURE user=carlos ip=192.0.2.30 method=password
+2026-09-14T09:40:00-06:00 LOGIN_FAILURE user=carlos ip=192.0.2.30 method=password
+2026-09-14T10:00:00 LOGIN_SUCCESS user=sofia ip=2001:db8::25 method=publickey
+2026-09-14T10:20:00-06:00 LOGIN_FAILURE user=carlos ip=192.0.2.30 method=password
+2026-09-14T10:21:10-06:00 LOGIN_SUCCESS user=carlos ip=192.0.2.30 method=password
+2026-09-14T11:00:00-06:00 LOGIN_FAILURE user=luis ip=192.0.2.11 method=password
+2026-09-14T11:01:30-06:00 LOGIN_FAILURE user=luis ip=192.0.2.11 method=password
+2026-09-14T11:03:00-06:00 LOGIN_FAILURE user=luis ip=192.0.2.11 method=password
+2026-09-14T11:04:30-06:00 LOGIN_FAILURE user=luis ip=192.0.2.11 method=password
+2026-09-14T11:06:00-06:00 LOGIN_FAILURE user=luis ip=192.0.2.11 method=password
+2026-09-14T11:06:40-06:00 LOGIN_SUCCESS user=luis ip=192.0.2.11 method=password
+# --- Líneas con errores intencionales: deben aparecer como "no interpretadas" ---
+2026-09-14T12:00:00-06:00 LOGIN_FAILURE user=marco
+2026-09-14T12:01:00-06:00 LOGIN_SUCCESS user=ana ip=999.10.10.10
+2026-09-31T12:02:00-06:00 LOGIN_FAILURE user=ana ip=192.0.2.10
+2026-09-14T12:03:00-06:00 LOGIN_LOCKED user=ana ip=192.0.2.10
+esta línea no sigue el formato del laboratorio

@@ -1,0 +1,4 @@
+{"timestamp": "2026-09-17T08:00:00Z", "severity": "alta", "title": "<script>alert('xss')</script>", "source": "web", "description": "Prueba de HTML: <img src=x onerror=alert(1)> y [enlace](https://ejemplo.invalid) con | pipe y `código`", "ip": "192.0.2.50", "user": "<b>ana</b>"}
+{"timestamp": "2026-09-17T08:01:00Z", "severity": "media", "title": "Línea con ANSI \u001b[31mrojo\u001b[0m y salto\nde línea", "source": "web", "ip": "::ffff:192.0.2.51"}
+{"timestamp": "2026-09-17T08:02:00Z", "severity": "baja", "title": "Evento normal", "source": "web"}
+esto no es JSON

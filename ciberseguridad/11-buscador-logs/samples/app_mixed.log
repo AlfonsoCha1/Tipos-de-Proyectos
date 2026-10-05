@@ -1,0 +1,20 @@
+# ==========================================================================
+# DATOS SINTÉTICOS - Cybersecurity Python Lab (proyecto 11)
+# Todo es inventado: servicio, usuarios e IPs ficticios (RFC 5737 / RFC 3849).
+# Incluye a propósito: líneas sin fecha (continuación de un error), una línea
+# con IPv6 y una con una secuencia ANSI para probar el escape de la terminal.
+# ==========================================================================
+2026-09-14T09:00:01-06:00 INFO  app: servicio iniciado versión=2.4.1
+2026-09-14T09:05:13-06:00 INFO  app: login correcto user=ana ip=192.0.2.10
+2026-09-14T09:07:45-06:00 WARN  app: contraseña incorrecta user=luis ip=192.0.2.11
+2026-09-14T09:12:30-06:00 ERROR app: fallo al consultar la base de datos
+    Traceback (most recent call last):
+      File "db.py", line 42, in query
+    TimeoutError: la consulta tardó más de 30 s
+2026-09-14T09:12:31-06:00 INFO  app: reintento 1 de 3
+2026-09-14T15:20:00Z WARN  app: demasiados intentos user=admin ip=203.0.113.50
+2026-09-14T15:21:10Z ERROR app: acceso denegado user=admin ip=2001:db8::50
+2026-09-14T09:40:02-06:00 INFO  app: sesión cerrada user=ana ip=192.0.2.10
+2026-09-15T08:00:00-06:00 INFO  app: tarea programada ejecutada
+2026-09-15T08:01:00-06:00 WARN  app: usuario [31mROJO[0m intentó entrar ip=198.51.100.23
+2026-09-15T08:02:00-06:00 ERROR app: Acceso denegado user=ADMIN ip=198.51.100.23

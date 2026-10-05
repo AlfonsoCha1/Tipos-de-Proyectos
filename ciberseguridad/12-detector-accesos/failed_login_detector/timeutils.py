@@ -1,6 +1,6 @@
 """Utilidades de fechas y zonas horarias.
 
-Copia intencional compartida por los proyectos 09 y 12. Cada proyecto del
+Copia intencional compartida por los proyectos 08, 09, 11 y 12. Cada proyecto del
 repositorio debe funcionar por separado, así que no importan código entre sí
 (ver docs/ARQUITECTURA.md en la raíz). Si cambias este archivo, revisa si el
 mismo cambio aplica a la copia del otro proyecto.

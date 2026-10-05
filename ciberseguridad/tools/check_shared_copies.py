@@ -1,7 +1,8 @@
 """Verifica que las copias intencionales de módulos compartidos sigan iguales.
 
 Los proyectos 09 y 12 comparten parsers.py, models.py y timeutils.py como
-copias (cada proyecto debe funcionar solo, ver docs/ARQUITECTURA.md). Este
+copias, y timeutils.py también lo comparten el 08 y el 11 (cada proyecto debe
+funcionar solo, ver docs/ARQUITECTURA.md). Este
 script avisa si alguien modificó una copia y olvidó la otra. También lo
 ejecuta la integración continua opcional (ver ci/github-actions.yml).
 
@@ -16,11 +17,20 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 
 SHARED_GROUPS = {
-    module: [
-        ROOT / "09-contador-logins" / "login_counter" / module,
-        ROOT / "12-detector-accesos" / "failed_login_detector" / module,
-    ]
-    for module in ("models.py", "parsers.py", "timeutils.py")
+    "models.py": [
+        ROOT / "09-contador-logins" / "login_counter" / "models.py",
+        ROOT / "12-detector-accesos" / "failed_login_detector" / "models.py",
+    ],
+    "parsers.py": [
+        ROOT / "09-contador-logins" / "login_counter" / "parsers.py",
+        ROOT / "12-detector-accesos" / "failed_login_detector" / "parsers.py",
+    ],
+    "timeutils.py": [
+        ROOT / "08-generador-reportes" / "report_generator" / "timeutils.py",
+        ROOT / "09-contador-logins" / "login_counter" / "timeutils.py",
+        ROOT / "11-buscador-logs" / "log_search" / "timeutils.py",
+        ROOT / "12-detector-accesos" / "failed_login_detector" / "timeutils.py",
+    ],
 }
 
 

@@ -1,4 +1,6 @@
 # Entorno único para usar el menú y probar TODOS los proyectos disponibles.
 # Cada proyecto también tiene sus propios requirements para instalarlo por separado.
+-r 08-generador-reportes/requirements-dev.txt
 -r 09-contador-logins/requirements-dev.txt
+-r 11-buscador-logs/requirements-dev.txt
 -r 12-detector-accesos/requirements-dev.txt
