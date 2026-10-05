@@ -1,0 +1,46 @@
+# PLANTILLA DE INTEGRACIÓN CONTINUA (desactivada).
+#
+# GitHub solo ejecuta los flujos que están en .github/workflows/ en la RAÍZ del
+# repositorio, así que este archivo no corre mientras esté aquí. Para activarlo,
+# desde la raíz de Tipos-de-Proyectos:
+#
+#   mkdir -p .github/workflows
+#   cp ciberseguridad/ci/github-actions.yml .github/workflows/ciberseguridad.yml
+#
+# Qué hace: en cada push que cambie algo dentro de ciberseguridad/, ejecuta las
+# pruebas en Ubuntu y en Windows con Python 3.10 y 3.13. Así compruebas la
+# compatibilidad con Windows aunque desarrolles en Linux Mint (y viceversa).
+# Si GitHub marca alguna acción como obsoleta, sube el número de versión (@v6...).
+name: Pruebas ciberseguridad
+
+on:
+  push:
+    paths:
+      - "ciberseguridad/**"
+      - ".github/workflows/ciberseguridad.yml"
+  pull_request:
+    paths:
+      - "ciberseguridad/**"
+
+jobs:
+  pruebas:
+    strategy:
+      fail-fast: false
+      matrix:
+        os: [ubuntu-latest, windows-latest]
+        python-version: ["3.10", "3.13"]
+    runs-on: ${{ matrix.os }}
+    defaults:
+      run:
+        working-directory: ciberseguridad
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-python@v6
+        with:
+          python-version: ${{ matrix.python-version }}
+      - name: Instalar dependencias
+        run: python -m pip install -r requirements-dev.txt
+      - name: Verificar copias de módulos compartidos
+        run: python tools/check_shared_copies.py
+      - name: Ejecutar pruebas de todos los proyectos
+        run: python menu.py --test-all

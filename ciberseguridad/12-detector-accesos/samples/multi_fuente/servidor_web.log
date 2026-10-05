@@ -1,0 +1,8 @@
+# DATOS SINTÉTICOS - Cybersecurity Python Lab (proyecto 12). Ver samples/README.md.
+# Servidor web del laboratorio: registra en hora de Ciudad de México (-06:00).
+2026-09-15T21:55:00-06:00 LOGIN_SUCCESS user=pablo ip=192.0.2.60 method=password
+2026-09-15T22:01:10-06:00 LOGIN_FAILURE user=elena ip=203.0.113.80 method=password
+2026-09-15T22:02:40-06:00 LOGIN_FAILURE user=elena ip=203.0.113.80 method=password
+2026-09-15T22:04:05-06:00 LOGIN_FAILURE user=elena ip=203.0.113.80 method=password
+2026-09-15T22:30:00-06:00 LOGIN_FAILURE user=pablo ip=192.0.2.60 method=password
+2026-09-15T22:30:20-06:00 LOGIN_SUCCESS user=pablo ip=192.0.2.60 method=password

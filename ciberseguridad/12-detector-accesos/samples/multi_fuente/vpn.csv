@@ -1,0 +1,5 @@
+timestamp,user,ip,result,note
+2026-09-16T04:01:50Z,elena,198.51.100.90,failure,DATOS SINTÉTICOS - la VPN del laboratorio registra en UTC
+2026-09-16T04:03:20Z,elena,198.51.100.90,failure,
+2026-09-16T04:05:30Z,elena,198.51.100.90,success,
+2026-09-16T04:20:00Z,pablo,192.0.2.60,success,

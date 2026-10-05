@@ -1,0 +1,8 @@
+timestamp,user,ip,result,note
+2026-09-14T08:00:00-06:00,ana,192.0.2.10,success,DATOS SINTÉTICOS (ver samples/README.md)
+2026-09-14T08:05:00-06:00,mario,192.0.2.40,failure,contraseña equivocada
+2026-09-14T08:05:30-06:00,mario,192.0.2.40,failure,
+2026-09-14T08:06:10-06:00,mario,192.0.2.40,success,
+2026-09-14T08:40:00-06:00,=HYPERLINK(1),203.0.113.77,failure,usuario malicioso: prueba de inyección CSV
+2026-09-14T08:41:00-06:00,mario,,failure,fila con IP vacía (error intencional)
+2026-09-14T08:42:00-06:00,mario,192.0.2.40,maybe,resultado inválido (error intencional)

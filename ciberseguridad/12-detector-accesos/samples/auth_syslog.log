@@ -1,0 +1,20 @@
+Sep 14 08:00:01 lab-server CRON[2101]: pam_unix(cron:session): session opened for user root(uid=0) by root(uid=0)
+Sep 14 08:05:12 lab-server sshd[2210]: Accepted publickey for ana from 192.0.2.10 port 50122 ssh2: ED25519 SHA256:HUELLAsinteticaDeEjemplo
+Sep 14 08:05:12 lab-server sshd[2210]: pam_unix(sshd:session): session opened for user ana(uid=1001) by ana(uid=0)
+Sep 14 08:20:30 lab-server sshd[2301]: Invalid user oracle from 198.51.100.23 port 40122
+Sep 14 08:20:32 lab-server sshd[2301]: Failed password for invalid user oracle from 198.51.100.23 port 40122 ssh2
+Sep 14 08:20:40 lab-server sshd[2305]: Failed password for root from 198.51.100.23 port 40130 ssh2
+Sep 14 08:20:44 lab-server sshd[2305]: message repeated 2 times: [ Failed password for root from 198.51.100.23 port 40130 ssh2]
+Sep 14 08:21:05 lab-server sshd[2310]: Failed password for invalid user test from 198.51.100.23 port 40144 ssh2
+Sep 14 08:21:30 lab-server sshd[2311]: Failed password for invalid user guest from 198.51.100.23 port 40150 ssh2
+Sep 14 08:21:31 lab-server sshd[2311]: Connection closed by invalid user guest 198.51.100.23 port 40150 [preauth]
+Sep 14 09:02:10 lab-server sshd[2400]: Failed password for luis from 192.0.2.11 port 51000 ssh2
+Sep 14 09:02:18 lab-server sshd[2400]: Accepted password for luis from 192.0.2.11 port 51000 ssh2
+Sep 14 09:30:00 lab-server sshd[2450]: Failed publickey for sofia from 2001:db8::25 port 60000 ssh2: ED25519 SHA256:HUELLAsinteticaDeEjemplo
+Sep 14 09:30:02 lab-server sshd[2450]: Accepted publickey for sofia from 2001:db8::25 port 60000 ssh2: ED25519 SHA256:HUELLAsinteticaDeEjemplo
+Sep 14 09:45:00 lab-server sshd-session[2500]: Failed password for admin from 203.0.113.50 port 55000 ssh2
+Sep 14 09:45:20 lab-server sshd-session[2500]: Failed password for admin from 203.0.113.50 port 55000 ssh2
+Sep 14 09:46:00 lab-server sudo:      ana : TTY=pts/0 ; PWD=/home/ana ; USER=root ; COMMAND=/usr/bin/apt update
+Sep 14 09:50:00 lab-server sshd[2600]: Failed password for root from host-sin-ip.example port 22 ssh2
+Sep 14 09:51:00 lab-server sshd[2601]: Accepted password for
+línea dañada sin cabecera syslog

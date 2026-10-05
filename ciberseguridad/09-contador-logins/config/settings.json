@@ -1,0 +1,9 @@
+{
+  "_ayuda": "Configuración editable. Los argumentos de la terminal tienen prioridad. Las claves que empiezan con _ se ignoran.",
+  "_zonas": "Usa 'UTC', un desplazamiento como '-06:00' o un nombre IANA exacto como 'America/Mexico_City'.",
+  "default_timezone": "UTC",
+  "display_timezone": "UTC",
+  "top": 10,
+  "max_unparsed_shown": 20,
+  "max_unparsed_kept": 500
+}
