@@ -1,0 +1,28 @@
+Return-Path: <rebotes@bancofenix.example>
+Authentication-Results: mx.lab.example; spf=pass smtp.mailfrom=bancofenix.example; dkim=pass header.d=bancofenix.example; dmarc=pass header.from=bancofenix.example
+From: =?utf-8?q?Banco_F=C3=A9nix?= <avisos@bancofenix.example>
+To: Cliente Demo <cliente@correo.example>
+Subject: =?utf-8?q?Tu_estado_de_cuenta_de_octubre_est=C3=A1_disponible?=
+Date: Tue, 04 Nov 2026 09:15:00 -0600
+Message-ID: <estado-2026-10@bancofenix.example>
+MIME-Version: 1.0
+Content-Type: multipart/alternative; boundary="b1"
+
+--b1
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+Hola, Cliente Demo:
+Tu estado de cuenta de octubre ya está disponible en la banca en línea.
+Entra escribiendo tú mismo la dirección https://www.bancofenix.example
+Recuerda: Banco Fénix nunca te pedirá tu contraseña por correo.
+(Correo sintético de laboratorio.)
+
+--b1
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+<html><body><p>Hola, Cliente Demo:</p>
+<p>Tu estado de cuenta de octubre ya está disponible en <a href="https://www.bancofenix.example/estados">www.bancofenix.example</a>.</p>
+<p>Recuerda: Banco Fénix nunca te pedirá tu contraseña por correo.</p></body></html>
+--b1--

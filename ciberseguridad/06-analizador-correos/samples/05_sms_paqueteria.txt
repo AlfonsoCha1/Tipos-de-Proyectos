@@ -1,0 +1,3 @@
+Paquetería Rápida: tu paquete no pudo ser entregado. Paga $25 de reenvío en las próximas 24 horas o será devuelto: https://paqueteriarapida-mx.example/pago?id=4471
+Seguimiento: http://xn--paqueterarpida-4gb3q.example/rastreo
+(Mensaje sintético de laboratorio.)

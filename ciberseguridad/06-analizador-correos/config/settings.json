@@ -1,0 +1,19 @@
+{
+  "_ayuda": "Marcas que se vigilan contra suplantación, acortadores de enlaces y frases. Las claves que empiezan con _ se ignoran.",
+  "_dominios": "Los ejemplos usan el dominio reservado .example (RFC 2606) para no referirse a empresas reales. Agrega aquí los dominios reales de tu banco o tu empresa.",
+  "protected_domains": {
+    "Banco Fénix": ["bancofenix.example"],
+    "Tienda Demo": ["tiendademo.example"],
+    "Paquetería Rápida": ["paqueteriarapida.example"]
+  },
+  "shorteners": ["bit.ly", "tinyurl.com", "t.co", "cutt.ly", "is.gd", "ow.ly", "rebrand.ly", "shorturl.at"],
+  "urgency_phrases": [
+    "urgente", "inmediatamente", "de inmediato", "24 horas", "48 horas", "último aviso", "ultimo aviso",
+    "será bloqueada", "sera bloqueada", "suspendida", "suspensión", "acción requerida", "verifique su cuenta",
+    "verifica tu cuenta", "evite la cancelación", "urgent", "immediately", "account suspended", "action required"
+  ],
+  "credential_phrases": [
+    "contraseña", "password", "nip", "pin", "cvv", "número de tarjeta", "numero de tarjeta", "token",
+    "código de verificación", "codigo de verificacion", "datos bancarios", "clave de acceso", "usuario y contraseña"
+  ]
+}

@@ -1,0 +1,31 @@
+Return-Path: <facturas@proveedor-demo.example>
+Authentication-Results: mx.lab.example; spf=softfail smtp.mailfrom=proveedor-demo.example; dkim=pass header.d=proveedor-demo.example; dmarc=pass header.from=proveedor-demo.example
+From: =?utf-8?q?Facturaci=C3=B3n_Proveedor_Demo?= <facturas@proveedor-demo.example>
+To: compras@empresa.example
+Subject: Factura 0925 pendiente de pago
+Date: Thu, 06 Nov 2026 11:02:40 -0600
+Message-ID: <fac-0925@proveedor-demo.example>
+MIME-Version: 1.0
+Content-Type: multipart/mixed; boundary="m1"
+
+--m1
+Content-Type: text/plain; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+Buen día:
+Adjuntamos la factura 0925. Favor de revisar el documento y realizar el pago.
+(Correo sintético de laboratorio; los adjuntos son texto inofensivo.)
+
+--m1
+Content-Type: application/octet-stream; name="Factura_0925.pdf.exe"
+Content-Disposition: attachment; filename="Factura_0925.pdf.exe"
+Content-Transfer-Encoding: base64
+
+QWRqdW50byBzaW50ZXRpY28gZGUgbGFib3JhdG9yaW86IG5vIGVzIHVuIHByb2dyYW1hIHkgbm8gaGFjZSBuYWRhLgo=
+--m1
+Content-Type: text/html; name="pago_en_linea.html"
+Content-Disposition: attachment; filename="pago_en_linea.html"
+Content-Transfer-Encoding: base64
+
+PGh0bWw+PGJvZHk+PGgxPlBhZ28gZW4gbMOtbmVhIChzaW50w6l0aWNvKTwvaDE+PGZvcm0gYWN0aW9uPSJodHRwOi8vMjAzLjAuMTEzLjkvcGFnbyI+PGlucHV0IG5hbWU9InRhcmpldGEiPjwvZm9ybT48L2JvZHk+PC9odG1sPgo=
+--m1--

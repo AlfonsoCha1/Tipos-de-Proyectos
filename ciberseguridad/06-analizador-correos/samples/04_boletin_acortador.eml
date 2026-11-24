@@ -1,0 +1,16 @@
+Return-Path: <rebotes@envios.tiendademo.example>
+Authentication-Results: mx.lab.example; spf=pass smtp.mailfrom=envios.tiendademo.example; dkim=pass header.d=tiendademo.example; dmarc=pass header.from=tiendademo.example
+From: Tienda Demo <boletin@tiendademo.example>
+To: cliente@correo.example
+Subject: Ofertas de la semana
+Date: Fri, 07 Nov 2026 10:00:00 -0600
+Message-ID: <boletin-45@tiendademo.example>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+<html><body>
+<p>Esta semana: 2x1 en playeras deportivas.</p>
+<p><a href="https://bit.ly/ofertas-lab">Ver ofertas</a> · <a href="https://www.tiendademo.example/cuenta">Mi cuenta</a></p>
+<p>Si ya no quieres recibir estos correos, cancela tu suscripción. (Correo sintético de laboratorio.)</p>
+</body></html>
