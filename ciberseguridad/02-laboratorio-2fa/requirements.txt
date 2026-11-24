@@ -1,0 +1,4 @@
+# Dependencias para EJECUTAR la herramienta.
+# El código usa solo la biblioteca estándar de Python 3.10+ (hmac, hashlib, base64, secrets, struct).
+# Decisión de la Entrega 6: implementar RFC 6238 a mano para entenderlo y validarlo con los
+# vectores oficiales del RFC, en lugar de depender de una biblioteca externa (ver README, sección 7).

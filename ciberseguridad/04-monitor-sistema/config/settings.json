@@ -1,0 +1,6 @@
+{
+  "_ayuda": "Umbrales en porcentaje. AVISO desde 'aviso', ALERTA desde 'alerta'. Debe cumplirse 0 < aviso < alerta <= 100.",
+  "cpu": {"aviso": 75, "alerta": 90},
+  "memoria": {"aviso": 80, "alerta": 90},
+  "disco": {"aviso": 80, "alerta": 90}
+}
