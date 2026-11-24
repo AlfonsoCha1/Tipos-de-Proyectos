@@ -1,0 +1,1 @@
+Notas de la guardia (sintético): revisar alertas del firewall.
