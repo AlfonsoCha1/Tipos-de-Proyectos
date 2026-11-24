@@ -1,0 +1,23 @@
+{
+  "_ayuda": "Plantilla editable de la checklist. Cada 'id' debe ser único. Tu avance se guarda aparte (output/mi_checklist.json), así que puedes editar esta plantilla sin perderlo.",
+  "items": [
+    {"id": "cuentas-01", "categoria": "Cuentas", "tarea": "Activar verificación en dos pasos (MFA) en el correo principal", "por_que": "El correo recupera todas las demás cuentas; con MFA una contraseña filtrada no basta."},
+    {"id": "cuentas-02", "categoria": "Cuentas", "tarea": "Usar un gestor de contraseñas con una contraseña única por sitio", "por_que": "Si un sitio se filtra, la misma contraseña no abre tus otras cuentas."},
+    {"id": "cuentas-03", "categoria": "Cuentas", "tarea": "Revisar si tu correo aparece en filtraciones conocidas y cambiar esas contraseñas", "por_que": "Las contraseñas filtradas se prueban automáticamente en otros servicios (credential stuffing)."},
+    {"id": "cuentas-04", "categoria": "Cuentas", "tarea": "Activar MFA en la banca en línea y en las redes sociales del negocio", "por_que": "Son las cuentas con dinero o con la reputación de la marca."},
+    {"id": "equipo-01", "categoria": "Equipo", "tarea": "Activar actualizaciones automáticas del sistema operativo", "por_que": "La mayoría de los ataques aprovechan fallas que ya tienen parche."},
+    {"id": "equipo-02", "categoria": "Equipo", "tarea": "Cifrar el disco (BitLocker en Windows, LUKS en Linux Mint)", "por_que": "Si pierdes la laptop, nadie puede leer tus archivos sacando el disco."},
+    {"id": "equipo-03", "categoria": "Equipo", "tarea": "Usar una cuenta sin privilegios de administrador para el día a día", "por_que": "Un programa malicioso hereda los permisos de la cuenta que lo ejecuta (mínimo privilegio)."},
+    {"id": "equipo-04", "categoria": "Equipo", "tarea": "Mostrar las extensiones de archivo en el explorador", "por_que": "Así ves que 'factura.pdf.exe' es un programa y no un PDF."},
+    {"id": "equipo-05", "categoria": "Equipo", "tarea": "Confirmar que el antivirus y el firewall del sistema están activos", "por_que": "Son la protección básica incluida; a veces se desactivan al instalar programas."},
+    {"id": "respaldo-01", "categoria": "Respaldos", "tarea": "Tener un respaldo 3-2-1 de tus archivos importantes", "por_que": "3 copias, 2 medios distintos, 1 fuera de casa o desconectada: es lo que te salva del ransomware."},
+    {"id": "respaldo-02", "categoria": "Respaldos", "tarea": "Probar que puedes restaurar un archivo del respaldo", "por_que": "Un respaldo que nunca se probó puede no servir el día que lo necesites."},
+    {"id": "red-01", "categoria": "Red de casa", "tarea": "Cambiar la contraseña de administrador del módem o router", "por_que": "Las contraseñas de fábrica están publicadas en internet."},
+    {"id": "red-02", "categoria": "Red de casa", "tarea": "Usar WPA2 o WPA3 con una contraseña larga en el Wi-Fi", "por_que": "WEP y WPA se rompen en minutos."},
+    {"id": "red-03", "categoria": "Red de casa", "tarea": "Crear una red de invitados para visitas y dispositivos IoT", "por_que": "Separa equipos que no controlas de tus computadoras."},
+    {"id": "navegador-01", "categoria": "Navegador y correo", "tarea": "Revisar y quitar extensiones del navegador que no uses", "por_que": "Una extensión puede leer todo lo que ves en las páginas."},
+    {"id": "navegador-02", "categoria": "Navegador y correo", "tarea": "Verificar el remitente y el destino real de los enlaces antes de hacer clic", "por_que": "El phishing imita marcas conocidas; el dominio real lo delata (ver proyecto 06)."},
+    {"id": "movil-01", "categoria": "Teléfono", "tarea": "Poner bloqueo de pantalla y activar la localización y borrado remoto", "por_que": "El teléfono recibe los códigos de MFA y tiene acceso a tus cuentas."},
+    {"id": "movil-02", "categoria": "Teléfono", "tarea": "Instalar apps solo de la tienda oficial y revisar sus permisos", "por_que": "Las apps fuera de la tienda son la vía principal de malware en Android."}
+  ]
+}
