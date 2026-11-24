@@ -1,0 +1,9 @@
+{
+  "_ayuda": "Reglas del filtro de subidas. Las claves que empiezan con _ se ignoran.",
+  "_lista_blanca": "Solo se aceptan estas extensiones; todo lo demás se rechaza.",
+  "allowed_extensions": [".pdf", ".png", ".jpg", ".jpeg", ".txt", ".csv", ".docx"],
+  "max_size_bytes": 5242880,
+  "max_name_length": 100,
+  "allow_hidden": false,
+  "check_content": true
+}
