@@ -1,0 +1,3 @@
+# Dependencias para EJECUTAR la herramienta.
+# El código usa solo la biblioteca estándar de Python 3.10+ (hashlib, os, pathlib, csv, json).
+# Este archivo existe para que todos los proyectos se instalen igual.

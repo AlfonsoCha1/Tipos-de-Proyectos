@@ -1,0 +1,7 @@
+# Lista de indicadores de LABORATORIO (sintética).
+# Una huella por línea: MD5 (32), SHA-1 (40) o SHA-256 (64 caracteres hexadecimales).
+# Lo que sigue a # es la descripción. Ninguna huella corresponde a malware real.
+33c434b684897a2904ddf999c672f7f7eb2a824782aab46182473d07929b7d3d  # muestra de laboratorio LAB-IOC-001
+0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef  # huella de relleno LAB-IOC-002
+da39a3ee5e6b4b0d3255bfef95601890afd80709  # SHA-1 de un archivo vacío (relleno de laboratorio)
+esto-no-es-una-huella  # línea inválida a propósito: se reporta como aviso
