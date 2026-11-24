@@ -55,11 +55,11 @@ Se agrupan proyectos que comparten conceptos para que cada entrega refuerce lo a
 |---|---|---|---|
 | 1 | [09 Contador de intentos de login](../09-contador-logins/README.md), [12 Detector de múltiples accesos](../12-detector-accesos/README.md) | Análisis de logs, expresiones regulares, fechas y zonas horarias, ventanas deslizantes | Implementada |
 | 2 | [11 Buscador en logs](../11-buscador-logs/README.md), [08 Generador de reportes](../08-generador-reportes/README.md) | Lectura incremental, contexto de líneas, Markdown/HTML con escape | Implementada |
-| 3 | 07 Duplicados, 13 Verificador de archivos sospechosos | SHA-256 por bloques, metadatos de archivos | Pendiente |
-| 4 | 03 Validador de archivos, 10 Clasificador de archivos | Reglas de validación, operaciones de archivos simuladas y reversibles | Pendiente |
-| 5 | 06 Analizador de correos | Formato .eml, URLs, indicadores de phishing y falsos positivos | Pendiente |
-| 6 | 02 Laboratorio TOTP, 04 Monitor del sistema | Únicas con dependencias externas previstas (biblioteca TOTP mantenida, `psutil`); se confirmarán en su entrega | Pendiente |
-| 7 | 01 Quiz, 05 Glosario, 14 Checklist | Datos JSON editables, búsqueda sin acentos, persistencia local | Pendiente |
+| 3 | 07 Duplicados, 13 Verificador de archivos sospechosos | SHA-256 por bloques, metadatos de archivos | Implementada |
+| 4 | 03 Validador de archivos, 10 Clasificador de archivos | Reglas de validación, operaciones de archivos simuladas y reversibles | Implementada |
+| 5 | 06 Analizador de correos | Formato .eml, URLs, indicadores de phishing y falsos positivos | Implementada |
+| 6 | 02 Laboratorio TOTP, 04 Monitor del sistema | 02 se implementó con la biblioteca estándar y se valida con los vectores del RFC 6238 (ver su README, sección 7); 04 usa `psutil` | Implementada |
+| 7 | 01 Quiz, 05 Glosario, 14 Checklist | Datos JSON editables, búsqueda sin acentos, persistencia local | Implementada |
 
 Se empezó por los logs porque el análisis de registros de autenticación es una tarea central en puestos de soporte, SOC y administración de sistemas, y genera las preguntas técnicas más ricas para una entrevista.
 

@@ -1,6 +1,16 @@
-# Entorno único para usar el menú y probar TODOS los proyectos disponibles.
+# Entorno único para usar el menú y probar TODOS los proyectos.
 # Cada proyecto también tiene sus propios requirements para instalarlo por separado.
+-r 01-quiz-ciberseguridad/requirements-dev.txt
+-r 02-laboratorio-2fa/requirements-dev.txt
+-r 03-validador-archivos/requirements-dev.txt
+-r 04-monitor-sistema/requirements-dev.txt
+-r 05-glosario/requirements-dev.txt
+-r 06-analizador-correos/requirements-dev.txt
+-r 07-buscador-duplicados/requirements-dev.txt
 -r 08-generador-reportes/requirements-dev.txt
 -r 09-contador-logins/requirements-dev.txt
+-r 10-clasificador-archivos/requirements-dev.txt
 -r 11-buscador-logs/requirements-dev.txt
 -r 12-detector-accesos/requirements-dev.txt
+-r 13-verificador-archivos/requirements-dev.txt
+-r 14-checklist-seguridad/requirements-dev.txt

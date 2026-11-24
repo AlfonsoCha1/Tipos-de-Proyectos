@@ -55,7 +55,7 @@ python menu.py
 
 Si PowerShell bloquea `Activate.ps1`, ejecuta una vez `Set-ExecutionPolicy -Scope CurrentUser RemoteSigned`, o usa `cmd` con `.venv\Scripts\activate.bat`. Si `python3 -m venv` falla en Linux Mint con un mensaje sobre `ensurepip`: `sudo apt install python3-venv` (instalar programas sí requiere `sudo`; las herramientas del laboratorio no).
 
-Resultado esperado: `Proyectos probados: 2 | con fallos: 0` (el número crecerá con cada entrega). Anota en [METODOLOGIA.md](METODOLOGIA.md) la fecha, el sistema y el resultado real.
+Resultado esperado: `Proyectos probados: 14 | con fallos: 0`. Anota en [METODOLOGIA.md](METODOLOGIA.md) la fecha, el sistema y el resultado real.
 
 ## 3. Subir tus propios cambios
 
