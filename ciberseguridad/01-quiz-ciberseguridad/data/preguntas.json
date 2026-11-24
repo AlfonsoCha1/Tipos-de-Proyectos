@@ -1,0 +1,149 @@
+{
+  "_ayuda": "Banco de preguntas editable. 'respuesta' es la letra de la opción correcta (A-D). Dificultad: facil, media o dificil. Ejecuta 'python -m security_quiz --validate' después de editar.",
+  "preguntas": [
+    {
+      "id": "red-01", "categoria": "Redes", "dificultad": "facil",
+      "pregunta": "¿Qué puerto usa por defecto SSH?",
+      "opciones": ["21", "22", "23", "443"], "respuesta": "B",
+      "explicacion": "SSH usa el puerto TCP 22. El 21 es FTP, el 23 es Telnet (sin cifrado) y el 443 es HTTPS."
+    },
+    {
+      "id": "red-02", "categoria": "Redes", "dificultad": "facil",
+      "pregunta": "¿Cuál de estas direcciones es privada (RFC 1918)?",
+      "opciones": ["8.8.8.8", "172.20.5.4", "203.0.113.10", "1.1.1.1"], "respuesta": "B",
+      "explicacion": "Los rangos privados son 10.0.0.0/8, 172.16.0.0/12 y 192.168.0.0/16. 172.20.5.4 está dentro de 172.16.0.0/12; 203.0.113.0/24 es un rango de documentación."
+    },
+    {
+      "id": "red-03", "categoria": "Redes", "dificultad": "media",
+      "pregunta": "¿Cuántas direcciones utilizables para equipos tiene una red /26?",
+      "opciones": ["30", "62", "64", "126"], "respuesta": "B",
+      "explicacion": "Un /26 deja 6 bits para equipos: 2^6 = 64 direcciones, menos la de red y la de broadcast = 62."
+    },
+    {
+      "id": "red-04", "categoria": "Redes", "dificultad": "media",
+      "pregunta": "¿Qué protocolo traduce un nombre como ejemplo.com a una dirección IP?",
+      "opciones": ["DHCP", "ARP", "DNS", "NTP"], "respuesta": "C",
+      "explicacion": "DNS resuelve nombres a IPs. DHCP asigna IPs, ARP traduce IP a MAC en la red local y NTP sincroniza la hora."
+    },
+    {
+      "id": "red-05", "categoria": "Redes", "dificultad": "dificil",
+      "pregunta": "En un firewall, ¿qué significa una política 'denegar por defecto'?",
+      "opciones": ["Se bloquea solo lo que está en una lista negra", "Se permite todo y se registra", "Todo se bloquea salvo lo que una regla permite explícitamente", "Se bloquea solo el tráfico entrante de Internet"], "respuesta": "C",
+      "explicacion": "Denegar por defecto es el principio de lista blanca: solo pasa lo que una regla permite. Es más seguro que intentar enumerar todo lo malo."
+    },
+    {
+      "id": "aut-01", "categoria": "Autenticación", "dificultad": "facil",
+      "pregunta": "¿Cuál es un ejemplo de 'algo que tienes' en la autenticación multifactor?",
+      "opciones": ["Tu contraseña", "Tu huella digital", "Una app de códigos en tu teléfono", "Tu fecha de nacimiento"], "respuesta": "C",
+      "explicacion": "Los factores son algo que sabes (contraseña), algo que tienes (teléfono, llave física) y algo que eres (biometría). La fecha de nacimiento ni siquiera es un buen secreto."
+    },
+    {
+      "id": "aut-02", "categoria": "Autenticación", "dificultad": "media",
+      "pregunta": "¿Por qué las contraseñas se guardan con un hash lento y una 'sal' (salt)?",
+      "opciones": ["Para poder descifrarlas si el usuario las olvida", "Para que dos usuarios con la misma contraseña tengan hashes distintos y adivinar sea costoso", "Para que ocupen menos espacio", "Porque así lo exige HTTPS"], "respuesta": "B",
+      "explicacion": "La sal hace que contraseñas iguales den hashes distintos (inutiliza tablas precalculadas) y un algoritmo lento como bcrypt o Argon2 encarece cada intento. Un hash no se 'descifra'."
+    },
+    {
+      "id": "aut-03", "categoria": "Autenticación", "dificultad": "media",
+      "pregunta": "En los registros ves una IP que falla una vez en 30 cuentas distintas en 2 minutos. ¿Qué ataque sugiere?",
+      "opciones": ["Fuerza bruta contra una cuenta", "Password spraying", "Phishing", "Denegación de servicio"], "respuesta": "B",
+      "explicacion": "Password spraying prueba pocas contraseñas comunes contra muchas cuentas para no activar el bloqueo por cuenta. La fuerza bruta clásica prueba muchas contraseñas contra una sola cuenta."
+    },
+    {
+      "id": "aut-04", "categoria": "Autenticación", "dificultad": "dificil",
+      "pregunta": "¿Qué protege mejor contra el phishing en tiempo real (el atacante usa tu código al instante)?",
+      "opciones": ["Códigos por SMS", "Códigos TOTP de una app", "Llaves FIDO2 o passkeys", "Preguntas de seguridad"], "respuesta": "C",
+      "explicacion": "FIDO2 y las passkeys firman un desafío ligado al dominio real: en un sitio falso no funcionan. SMS y TOTP se pueden reenviar al atacante si el usuario los escribe en la página falsa."
+    },
+    {
+      "id": "phi-01", "categoria": "Phishing", "dificultad": "facil",
+      "pregunta": "Un correo del 'banco' dice que tu cuenta será bloqueada en 24 horas y pide tu NIP. ¿Qué haces?",
+      "opciones": ["Respondo con el NIP para evitar el bloqueo", "Hago clic y reviso si la página se ve real", "No respondo ni hago clic; entro al banco escribiendo yo la dirección o llamo al número de la tarjeta", "Lo reenvío a mis contactos para avisarles"], "respuesta": "C",
+      "explicacion": "Urgencia + petición de datos sensibles es el patrón clásico. Ningún banco pide el NIP por correo. Se verifica por un canal que tú controlas."
+    },
+    {
+      "id": "phi-02", "categoria": "Phishing", "dificultad": "media",
+      "pregunta": "¿Qué indica un resultado 'dmarc=fail' en los encabezados de un correo que dice ser de tu banco?",
+      "opciones": ["Que el correo es legítimo pero llegó tarde", "Que el dominio del remitente no autorizó ese envío: es una señal fuerte de suplantación", "Que el correo tiene virus", "Que tu buzón está lleno"], "respuesta": "B",
+      "explicacion": "DMARC comprueba que SPF o DKIM coincidan con el dominio visible del remitente. Si falla, el dominio no respalda ese mensaje; junto con otros indicadores, es motivo para tratarlo como phishing."
+    },
+    {
+      "id": "phi-03", "categoria": "Phishing", "dificultad": "media",
+      "pregunta": "¿Qué es una doble extensión como 'factura.pdf.exe'?",
+      "opciones": ["Un PDF comprimido", "Un programa disfrazado: Windows oculta la última extensión y se ve como PDF", "Un PDF firmado digitalmente", "Un error inofensivo del correo"], "respuesta": "B",
+      "explicacion": "Windows oculta por defecto la extensión conocida final, así que el usuario ve 'factura.pdf' y ejecuta un programa. Mostrar extensiones en el explorador ayuda a detectarlo."
+    },
+    {
+      "id": "phi-04", "categoria": "Phishing", "dificultad": "dificil",
+      "pregunta": "El texto de un enlace dice https://www.mibanco.example pero al pasar el mouse aparece http://198.51.100.7/login. ¿Qué técnica es?",
+      "opciones": ["Typosquatting", "Enlace engañoso: el texto visible y el destino real son distintos", "Inyección SQL", "Ataque de diccionario"], "respuesta": "B",
+      "explicacion": "En HTML el texto del enlace y el href son independientes. Comparar ambos es uno de los indicadores más claros de phishing; además el destino es una IP, no un dominio."
+    },
+    {
+      "id": "mal-01", "categoria": "Malware", "dificultad": "facil",
+      "pregunta": "¿Qué hace un ransomware?",
+      "opciones": ["Muestra publicidad", "Cifra tus archivos y pide un rescate para recuperarlos", "Acelera el equipo", "Solo roba la contraseña del Wi-Fi"], "respuesta": "B",
+      "explicacion": "El ransomware cifra datos (y hoy también los roba para extorsionar). La mejor defensa es tener respaldos desconectados y probados, además de parches y MFA."
+    },
+    {
+      "id": "mal-02", "categoria": "Malware", "dificultad": "media",
+      "pregunta": "Encuentras un archivo sospechoso. ¿Qué es lo primero y más seguro para identificarlo?",
+      "opciones": ["Abrirlo para ver qué hace", "Calcular su hash SHA-256 y buscarlo en tu fuente de inteligencia, sin ejecutarlo", "Renombrarlo a .txt", "Enviarlo por correo a un compañero"], "respuesta": "B",
+      "explicacion": "El hash identifica el contenido sin ejecutarlo y permite buscar si ya es un indicador conocido. Abrirlo o compartirlo puede infectar o propagar."
+    },
+    {
+      "id": "mal-03", "categoria": "Malware", "dificultad": "dificil",
+      "pregunta": "¿Por qué el tipo real de un archivo se decide por sus primeros bytes y no por la extensión?",
+      "opciones": ["Porque la extensión se cambia con solo renombrar; los primeros bytes los exige el programa que lo abre", "Porque Windows no usa extensiones", "Porque los primeros bytes contienen el nombre del autor", "No hay diferencia"], "respuesta": "A",
+      "explicacion": "Un ejecutable de Windows empieza con 'MZ' aunque se llame foto.jpg. Comparar la firma con la extensión detecta disfraces."
+    },
+    {
+      "id": "soc-01", "categoria": "SOC y registros", "dificultad": "facil",
+      "pregunta": "¿Qué es un SIEM?",
+      "opciones": ["Un antivirus para celulares", "Un sistema que reúne y correlaciona registros de muchas fuentes para detectar incidentes", "Un tipo de firewall de hardware", "Un protocolo de correo"], "respuesta": "B",
+      "explicacion": "Un SIEM (Splunk, Wazuh, Microsoft Sentinel...) centraliza registros, los normaliza y aplica reglas de correlación para generar alertas que revisa el SOC."
+    },
+    {
+      "id": "soc-02", "categoria": "SOC y registros", "dificultad": "media",
+      "pregunta": "¿Por qué conviene convertir todas las fechas de los registros a UTC antes de compararlas?",
+      "opciones": ["Porque UTC ocupa menos espacio", "Porque fuentes en distintas zonas horarias o con cambio de horario parecerían desordenadas y la línea de tiempo sería falsa", "Porque los SIEM no aceptan otras zonas", "No es necesario"], "respuesta": "B",
+      "explicacion": "Si un servidor registra en hora de México y otro en UTC, un evento puede parecer 6 horas antes o después. Normalizar a UTC permite reconstruir la secuencia real de un incidente."
+    },
+    {
+      "id": "soc-03", "categoria": "SOC y registros", "dificultad": "media",
+      "pregunta": "Una alerta resultó ser actividad legítima (un respaldo nocturno). ¿Cómo se llama?",
+      "opciones": ["Falso negativo", "Falso positivo", "Verdadero positivo", "Indicador de compromiso"], "respuesta": "B",
+      "explicacion": "Falso positivo: la regla alertó pero no había ataque. Un falso negativo es lo contrario (hubo ataque y no hubo alerta), y suele ser más grave."
+    },
+    {
+      "id": "soc-04", "categoria": "SOC y registros", "dificultad": "dificil",
+      "pregunta": "¿Cuál es el orden habitual de las fases de respuesta a incidentes (NIST SP 800-61)?",
+      "opciones": ["Erradicación, detección, preparación, lecciones", "Preparación; detección y análisis; contención, erradicación y recuperación; actividad posterior al incidente", "Recuperación, contención, detección, preparación", "Detección, castigo, olvido"], "respuesta": "B",
+      "explicacion": "NIST propone preparación, detección y análisis, contención/erradicación/recuperación y lecciones aprendidas. Contener antes de erradicar evita que el atacante se mueva mientras limpias."
+    },
+    {
+      "id": "soc-05", "categoria": "SOC y registros", "dificultad": "media",
+      "pregunta": "¿Qué es un IOC (indicador de compromiso)?",
+      "opciones": ["Una política de contraseñas", "Un dato observable que asocia actividad con un ataque conocido: hash, IP, dominio, URL", "Un certificado SSL", "Un tipo de VPN"], "respuesta": "B",
+      "explicacion": "Hashes de archivos, IPs, dominios o URLs maliciosos son IOC. Se comparten entre equipos para buscar si un ataque conocido ya tocó tu red."
+    },
+    {
+      "id": "cri-01", "categoria": "Criptografía", "dificultad": "facil",
+      "pregunta": "¿Cuál es la diferencia principal entre cifrar y aplicar un hash?",
+      "opciones": ["No hay diferencia", "El cifrado se puede revertir con la llave; un hash es de un solo sentido", "El hash usa dos llaves", "El cifrado solo sirve para contraseñas"], "respuesta": "B",
+      "explicacion": "Cifrar protege la confidencialidad y se descifra con la llave. Un hash resume el contenido y no se puede revertir: sirve para verificar integridad o guardar contraseñas."
+    },
+    {
+      "id": "cri-02", "categoria": "Criptografía", "dificultad": "media",
+      "pregunta": "¿Por qué ya no se usa MD5 para comprobar que dos archivos son iguales en seguridad?",
+      "opciones": ["Porque es demasiado lento", "Porque tiene colisiones prácticas: se pueden fabricar dos archivos distintos con el mismo MD5", "Porque solo funciona en Linux", "Porque es de pago"], "respuesta": "B",
+      "explicacion": "Las colisiones de MD5 (y de SHA-1) son prácticas. Para integridad se usa SHA-256 o superior; MD5 solo aparece en listas de indicadores antiguas."
+    },
+    {
+      "id": "cri-03", "categoria": "Criptografía", "dificultad": "dificil",
+      "pregunta": "En HTTPS, ¿para qué sirve el certificado del servidor?",
+      "opciones": ["Para comprimir la página", "Para demostrar, con la firma de una autoridad confiable, que la llave pública pertenece a ese dominio", "Para guardar las cookies", "Para acelerar el DNS"], "respuesta": "B",
+      "explicacion": "El certificado liga una llave pública a un dominio y lo firma una autoridad de certificación. Sin esa verificación, un atacante en medio podría presentar su propia llave."
+    }
+  ]
+}
