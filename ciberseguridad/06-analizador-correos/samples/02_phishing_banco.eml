@@ -1,0 +1,19 @@
+Return-Path: <envios@masivo-barato.example>
+Authentication-Results: mx.lab.example; spf=fail smtp.mailfrom=bancofenlx.example; dkim=none; dmarc=fail header.from=bancofenlx.example
+From: =?utf-8?q?Banco_F=C3=A9nix_Seguridad?= <seguridad@bancofenlx.example>
+Reply-To: soporte.bancofenix@correo-gratis.example
+To: cliente@correo.example
+Subject: =?utf-8?q?URGENTE=3A_su_cuenta_ser=C3=A1_bloqueada_en_24_horas?=
+Date: Wed, 05 Nov 2026 02:47:13 -0600
+Message-ID: <a81f-lab@bancofenlx.example>
+MIME-Version: 1.0
+Content-Type: text/html; charset=utf-8
+Content-Transfer-Encoding: 8bit
+
+<html><body>
+<p>Estimado cliente:</p>
+<p>Detectamos actividad inusual. Su cuenta será bloqueada en 24 horas si no verifica su cuenta.</p>
+<p>Ingrese a <a href="http://198.51.100.77/bancofenix/login.php">https://www.bancofenix.example/seguridad</a>
+y confirme su usuario y contraseña, su NIP y el código de verificación que recibirá por SMS.</p>
+<p>Atentamente, Departamento de Seguridad (correo sintético de laboratorio)</p>
+</body></html>

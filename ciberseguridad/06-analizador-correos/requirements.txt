@@ -1,0 +1,3 @@
+# Dependencias para EJECUTAR la herramienta.
+# El código usa solo la biblioteca estándar de Python 3.10+ (email, html.parser, urllib.parse, ipaddress).
+# Este archivo existe para que todos los proyectos se instalen igual.
