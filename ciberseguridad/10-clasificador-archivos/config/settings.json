@@ -1,0 +1,14 @@
+{
+  "_ayuda": "Categorías y extensiones. Lo que no aparezca va a la carpeta 'Otros'. Una extensión solo puede estar en una categoría.",
+  "categories": {
+    "Imagenes": [".jpg", ".jpeg", ".png", ".gif", ".webp", ".svg", ".bmp", ".heic"],
+    "Documentos": [".pdf", ".doc", ".docx", ".odt", ".rtf", ".txt", ".md"],
+    "Hojas de calculo": [".xls", ".xlsx", ".ods", ".csv"],
+    "Presentaciones": [".ppt", ".pptx", ".odp"],
+    "Comprimidos": [".zip", ".rar", ".7z", ".tar", ".gz"],
+    "Audio": [".mp3", ".wav", ".ogg", ".flac", ".m4a"],
+    "Video": [".mp4", ".mkv", ".avi", ".mov", ".webm"],
+    "Codigo": [".py", ".js", ".html", ".css", ".json", ".sh", ".sql"],
+    "Instaladores y ejecutables": [".exe", ".msi", ".deb", ".appimage", ".bat", ".ps1", ".apk"]
+  }
+}

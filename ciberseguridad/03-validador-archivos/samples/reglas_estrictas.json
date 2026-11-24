@@ -1,0 +1,8 @@
+{
+  "_ayuda": "Reglas más estrictas para practicar: solo PDF e imágenes, máximo 2 KB.",
+  "allowed_extensions": [".pdf", ".png", ".jpg"],
+  "max_size_bytes": 2048,
+  "max_name_length": 40,
+  "allow_hidden": false,
+  "check_content": true
+}
