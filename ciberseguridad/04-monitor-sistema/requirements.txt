@@ -1,0 +1,6 @@
+# Dependencias para EJECUTAR la herramienta.
+#
+# psutil: lee CPU, memoria y discos de forma igual en Linux, Windows y macOS.
+# Con la biblioteca estándar habría que leer /proc en Linux y llamar a la API de
+# Windows por separado; psutil es la biblioteca de referencia para esto.
+psutil>=5.9
