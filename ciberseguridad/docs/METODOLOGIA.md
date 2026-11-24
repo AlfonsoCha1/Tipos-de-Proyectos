@@ -46,3 +46,11 @@ Marca cada una cuando puedas explicarla con tus palabras:
 - [ ] Cómo se escapa el texto de los logs en el HTML y el Markdown del proyecto 08, y por qué el HTML lleva `Content-Security-Policy`.
 - [ ] Cómo se combinan los criterios del buscador (proyecto 11): alguna palabra, alguna IP o rango y fecha en el intervalo; Y entre tipos.
 - [ ] Por qué el buscador excluye (y cuenta) las líneas sin fecha cuando se filtra por fechas.
+- [ ] Por qué el buscador de duplicados agrupa por tamaño antes de calcular SHA-256 (proyecto 07).
+- [ ] Cómo detecta el proyecto 13 un ejecutable disfrazado (firma `MZ`) y por qué escapa el carácter `U+202E`.
+- [ ] Por qué el validador usa lista blanca y revisa el contenido, no solo la extensión (proyecto 03).
+- [ ] Cómo garantiza el clasificador que no se pierde ningún archivo: simulación, confirmación, sin sobrescribir, journal (proyecto 10).
+- [ ] Qué indican SPF, DKIM y DMARC, y por qué cada indicador del analizador de correos trae un "posible falso positivo" (proyecto 06).
+- [ ] Los 7 pasos de TOTP y por qué se usa `hmac.compare_digest` y `last_counter` (proyecto 02).
+- [ ] Por qué el monitor recibe un "lector" inyectable y cómo eso permite probarlo (proyecto 04).
+- [ ] Qué es una escritura atómica y por qué la checklist no sobrescribe un avance dañado (proyecto 14).

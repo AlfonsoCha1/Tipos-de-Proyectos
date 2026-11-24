@@ -48,24 +48,28 @@ class Project:
 
 # Orden y nombres de carpeta definidos en docs/ARQUITECTURA.md.
 PROJECTS = (
-    Project(1, "01-quiz-ciberseguridad", "Quiz de ciberseguridad", "security_quiz"),
-    Project(2, "02-laboratorio-2fa", "Laboratorio de códigos 2FA (TOTP)", "totp_lab"),
-    Project(3, "03-validador-archivos", "Validador de archivos", "file_validator"),
-    Project(4, "04-monitor-sistema", "Monitor básico del sistema", "system_monitor"),
-    Project(5, "05-glosario", "Glosario interactivo", "security_glossary"),
-    Project(6, "06-analizador-correos", "Analizador de correos", "email_analyzer"),
-    Project(7, "07-buscador-duplicados", "Buscador de archivos duplicados", "duplicate_finder"),
+    Project(1, "01-quiz-ciberseguridad", "Quiz de ciberseguridad", "security_quiz",
+            ("--category", "SOC y registros", "--count", "3", "--seed", "7", "--answers", "A,A,D")),
+    Project(2, "02-laboratorio-2fa", "Laboratorio de códigos 2FA (TOTP)", "totp_lab",
+            ("explain", "--secret-file", "samples/secreto_demo.txt", "--at", "2026-11-24T10:00:00-06:00")),
+    Project(3, "03-validador-archivos", "Validador de archivos", "file_validator",
+            ("samples/subidas", "--name", "factura.pdf.exe", "--name", "CON.txt", "--name", "../../config.txt")),
+    Project(4, "04-monitor-sistema", "Monitor básico del sistema", "system_monitor", ("--demo",)),
+    Project(5, "05-glosario", "Glosario interactivo", "security_glossary", ("2fa",)),
+    Project(6, "06-analizador-correos", "Analizador de correos", "email_analyzer", ("samples",)),
+    Project(7, "07-buscador-duplicados", "Buscador de archivos duplicados", "duplicate_finder",
+            ("samples/carpeta_demo",)),
     Project(8, "08-generador-reportes", "Generador de reportes de seguridad", "report_generator",
             ("samples/eventos.csv", "--stdout", "--display-tz=-06:00")),
     Project(9, "09-contador-logins", "Contador de intentos de login", "login_counter",
             ("samples/auth_lab.log",)),
-    Project(10, "10-clasificador-archivos", "Clasificador de archivos", "file_organizer"),
+    Project(10, "10-clasificador-archivos", "Clasificador de archivos", "file_organizer", ("--demo",)),
     Project(11, "11-buscador-logs", "Buscador de información en logs", "log_search",
             ("samples/auth_lab.log", "--cidr", "198.51.100.0/24", "-C", "1")),
     Project(12, "12-detector-accesos", "Detector de múltiples accesos", "failed_login_detector",
             ("samples/auth_lab.log", "--display-tz=-06:00")),
-    Project(13, "13-verificador-archivos", "Verificador de archivos sospechosos", "file_inspector"),
-    Project(14, "14-checklist-seguridad", "Checklist de seguridad", "security_checklist"),
+    Project(13, "13-verificador-archivos", "Verificador de archivos sospechosos", "file_inspector", ("--demo",)),
+    Project(14, "14-checklist-seguridad", "Checklist de seguridad", "security_checklist", ("demo",)),
 )
 
 
